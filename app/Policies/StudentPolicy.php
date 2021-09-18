@@ -22,6 +22,6 @@ class StudentPolicy
 
     public function updateStudent(User $user, Student $student)
     {
-        return $user->id === $student->user_id;
+        return $user->id === $student->user_id OR $user->userType === 'Admin';
     }
 }

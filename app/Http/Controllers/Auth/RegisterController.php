@@ -101,6 +101,7 @@ class RegisterController extends Controller
             'password' => Hash::make($data['password']),
             'province_id' => $data['province_id'],
             'region_id' => $data['region_id'],
+            'admin' => 'N',
         ]);
     }
 }

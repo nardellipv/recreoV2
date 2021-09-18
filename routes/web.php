@@ -36,3 +36,13 @@ Route::middleware(['auth'])->group(function () {
         Route::get('/alumno/eliminar/{id}', 'StudentController@deleteStudent')->name('student.delete');
     });
 });
+
+Route::middleware(['auth','AdminMiddleware'])->group(function () {
+    Route::get('/admin/dashboard', 'Admin\HomeAdminController@index')->name('admin.dashboard');
+
+    Route::get('/admin/profesor/listado', 'Admin\TeacherAdminController@adminListTeacher')->name('admin.teacher');
+
+    Route::get('/admin/alumno/listado', 'Admin\StudentAdminController@adminListStudent')->name('admin.student');
+    
+    Route::get('/admin/escuela/listado', 'Admin\SchoolAdminController@adminListSchool')->name('admin.school');
+});

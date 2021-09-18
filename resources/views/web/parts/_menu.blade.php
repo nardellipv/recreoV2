@@ -10,6 +10,11 @@
         <a href="{{ route('dashboard') }}" class="nav-link"><i class="fas fa-desktop"></i><span>Panel
             Principal</span></a>
       </li>
+      @if(current_user()->userType == 'Admin')
+      <li class="dropdown">
+        <a href="{{ route('admin.dashboard') }}" class="nav-link" target="blank_"><i class="fas fa-desktop"></i><span>Administrador</span></a>
+      </li>
+      @endif
       <li class="dropdown {{ Route::current()->getName() == 'school.edit' ? 'active' : '' }}">
         <a href="{{ route('school.edit', current_user()->id) }}" class="nav-link"><i
             class="fas fa-school"></i><span>Editar datos del colegio</span></a>

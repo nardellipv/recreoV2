@@ -26,6 +26,7 @@ class CreateUsersTable extends Migration
             $table->string('email', 120)->unique();
             $table->enum('first_time', ['SI', 'NO']);
             $table->enum('sede', ['SI', 'NO'])->default('NO');
+            $table->enum('userType', ['Colegio', 'Admin'])->default('Colegio');
 
             //relaciones
 

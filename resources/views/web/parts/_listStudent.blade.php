@@ -11,7 +11,7 @@
                     <div class="card-header">
                         <h4>Listado rápido de alumnos</h4>
                         <div class="card-header-action">
-                            <a href="#" class="btn btn-primary">
+                            <a href="{{ route('student.add') }}" class="btn btn-warning">
                                 Inscribir Nuevo Alumno
                             </a>
                         </div>
@@ -26,7 +26,6 @@
                                         <th>Teléfono</th>
                                         <th>Año Cursado</th>
                                         <th>Nivel</th>
-                                        <th>Acción</th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -37,7 +36,6 @@
                                         <td>{{ $student->phone }}</td>
                                         <td>{{ $student->classroom }}</td>
                                         <td>{{ $student->level }}</td>
-                                        <td><a href="#" class="btn btn-primary">Detail</a></td>
                                     </tr>
                                     @endforeach
                                 </tbody>

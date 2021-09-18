@@ -36,7 +36,7 @@
               </span>
             </a> <a href="#" class="dropdown-item"> <span class="dropdown-item-icon bg-danger text-white"> <i
                   class="fas fa-exclamation-triangle"></i>
-              </span> <span class="dropdown-item-desc"> Low disk space. Let's
+              </span> <span class="dropdown-item-desc"> Low disk space. Lets
                 clean it! <span class="time">17 Hours Ago</span>
               </span>
             </a> <a href="#" class="dropdown-item"> <span class="dropdown-item-icon bg-info text-white"> <i class="fas
@@ -55,18 +55,20 @@
           class="nav-link dropdown-toggle nav-link-lg nav-link-user"> <img alt="image" src="{{ asset('assets/img/user.png') }}"
             class="user-img-radious-style"> <span class="d-sm-none d-lg-inline-block"></span></a>
         <div class="dropdown-menu dropdown-menu-right pullDown">
-          <div class="dropdown-title">Hello Sarah Smith</div>
-          <a href="profile.html" class="dropdown-item has-icon"> <i class="far
-                                    fa-user"></i> Profile
-          </a> <a href="timeline.html" class="dropdown-item has-icon"> <i class="fas fa-bolt"></i>
-            Activities
-          </a> <a href="#" class="dropdown-item has-icon"> <i class="fas fa-cog"></i>
-            Settings
+          <div class="dropdown-title">Hola, {{ current_user()->name }}</div>
+          <a href="{{ route('school.edit', current_user()->id) }}" class="dropdown-item has-icon"> <i class="fas fa-school"></i> Editar datos del colegio
+          </a> <a href="{{ route('teacher.list') }}" class="dropdown-item has-icon"> <i class="fas fa-chalkboard-teacher"></i>
+            Listado de profesores
+          </a> <a href="{{ route('student.list') }}" class="dropdown-item has-icon"> <i class="fas fa-book-reader"></i>
+            Listado de estudiantes
           </a>
           <div class="dropdown-divider"></div>
-          <a href="auth-login.html" class="dropdown-item has-icon text-danger"> <i class="fas fa-sign-out-alt"></i>
-            Logout
+          <a href="{{ route('logout') }}" class="dropdown-item has-icon text-danger" onclick="event.preventDefault(); document.getElementById('logout-form').submit();"> <i class="fas fa-sign-out-alt"></i>
+            Salir
           </a>
+          <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+            @csrf
+          </form>
         </div>
       </li>
     </ul>

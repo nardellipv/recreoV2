@@ -16,7 +16,7 @@
   <!-- Custom style CSS -->
   @yield('css')
   <link rel="stylesheet" href="{{ asset('assets/css/custom.css') }}">
-  <link rel='shortcut icon' type='image/x-icon' href='assets/img/favicon.ico' />
+  <link rel='shortcut icon' type='image/x-icon' href="{{ asset('favicon.ico')}}" />
 </head>
 
 <body>
@@ -30,12 +30,13 @@
 
       <!-- Main Content -->
       <div class="main-content">
+        @include('sweetalert::alert')
         @yield('content')
       </div>
 
       <footer class="main-footer">
         <div class="footer-left">
-          <a href="templateshub.net">Templateshub</a></a>
+          <a href="https://mikant.com.ar" target="blank_">MikAnt</a></a>
         </div>
         <div class="footer-right">
         </div>

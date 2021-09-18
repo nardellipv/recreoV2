@@ -22,12 +22,12 @@ class CreateStudentsTable extends Migration
             $table->date('birth_date');
             $table->string('genre');
             $table->string('phone');
-            $table->string('email');
+            $table->string('email')->nullable();
             $table->string('classroom');
             $table->enum('level', ['1', '2']);
-            $table->string('first_note');
-            $table->string('second_note');
-            $table->string('total_note');
+            $table->string('first_note')->nullable();
+            $table->string('second_note')->nullable();
+            $table->string('total_note')->nullable();
             $table->enum('first_time', ['SI', 'NO']);
 
             //relaciones

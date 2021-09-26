@@ -32,11 +32,11 @@
                                 <form method="POST" action="{{ route('login') }}" class="needs-validation">
                                     @csrf
                                     <div class="form-group">
-                                        <label for="email">Email</label>
-                                        <input id="email" type="email"
-                                            class="form-control @error('email') is-invalid @enderror" name="email"
-                                            value="{{ old('email') }}" required autocomplete="email" autofocus>
-                                        @error('email')
+                                        <label for="email_school">Email</label>
+                                        <input id="email_school" type="email"
+                                            class="form-control @error('email_school') is-invalid @enderror" name="email_school"
+                                            value="{{ old('email_school') }}" required autocomplete="email_school" autofocus>
+                                        @error('email_school')
                                         <span class="invalid-feedback" role="alert">
                                             <strong>{{ $message }}</strong>
                                         </span>

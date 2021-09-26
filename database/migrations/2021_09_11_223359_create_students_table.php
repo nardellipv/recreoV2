@@ -16,19 +16,19 @@ class CreateStudentsTable extends Migration
         Schema::create('students', function (Blueprint $table) {
             $table->id();
 
-            $table->string('name');
-            $table->string('lastname');
-            $table->string('dni');
+            $table->string('name_student');
+            $table->string('lastname_student');
+            $table->string('dni_student');
             $table->date('birth_date');
             $table->string('genre');
-            $table->string('phone');
-            $table->string('email')->nullable();
+            $table->string('phone_student');
+            $table->string('email_student')->nullable();
             $table->string('classroom');
-            $table->enum('level', ['1', '2']);
+            $table->enum('level_student', ['1', '2']);
             $table->string('first_note')->nullable();
             $table->string('second_note')->nullable();
             $table->string('total_note')->nullable();
-            $table->enum('first_time', ['SI', 'NO']);
+            $table->enum('first_time_student', ['SI', 'NO']);
 
             //relaciones
 

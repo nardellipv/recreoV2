@@ -16,7 +16,8 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'name', 'email', 'address', 'postal_code', 'phone', 'director1', 'director2', 'password', 'province_id', 'region_id', 'userType'
+        'name_school', 'email_school', 'address', 'postal_code', 'phone_school', 'director1', 'director2', 
+        'password', 'province_id', 'region_id', 'userType', 'first_time_school', 'sede'
     ];
 
     /**
@@ -45,5 +46,15 @@ class User extends Authenticatable
     public function Student()
     {
         return $this->hasMany(Student::class);
+    }
+
+    public function Region()
+    {
+        return $this->belongsTo(Region::class);
+    }
+
+    public function Province()
+    {
+        return $this->belongsTo(Province::class);
     }
 }

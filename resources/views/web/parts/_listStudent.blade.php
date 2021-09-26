@@ -31,11 +31,11 @@
                                 <tbody>
                                     @foreach($students as $student)
                                     <tr>
-                                        <td>{{ $student->name }}</td>
-                                        <td>{{ $student->lastname }}</td>
-                                        <td>{{ $student->phone }}</td>
+                                        <td>{{ $student->name_student }}</td>
+                                        <td>{{ $student->lastname_student }}</td>
+                                        <td>{{ $student->phone_student }}</td>
                                         <td>{{ $student->classroom }}</td>
-                                        <td>{{ $student->level }}</td>
+                                        <td>{{ $student->level_student }}</td>
                                     </tr>
                                     @endforeach
                                 </tbody>

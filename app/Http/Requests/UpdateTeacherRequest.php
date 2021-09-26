@@ -2,9 +2,10 @@
 
 namespace App\Http\Requests;
 
+use App\Teacher;
 use Illuminate\Foundation\Http\FormRequest;
 
-class TeacherRequest extends FormRequest
+class UpdateTeacherRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -13,7 +14,7 @@ class TeacherRequest extends FormRequest
      */
     public function authorize()
     {
-        return true;
+        return false;
     }
 
     /**
@@ -23,6 +24,8 @@ class TeacherRequest extends FormRequest
      */
     public function rules()
     {
+        $teacher = Teacher::find($this->id);
+        
         return [
             'name_teacher' => 'required | min:2',
             'lastname_teacher' => 'required | min:2',
@@ -31,7 +34,7 @@ class TeacherRequest extends FormRequest
             'level_teacher' => 'required',
             'other_school' => 'required',
             'phone_teacher' => 'required | numeric',
-            'email_teacher' => 'required | email|unique:teachers,email_teacher,' . $this->user()->id,
+            'email_teacher' => 'required | email|unique:teachers,email_teacher,' . $teacher->id,
             'first_time_teacher' => 'required',
         ];
     }

@@ -18,7 +18,7 @@
                     </div>
                     <div class="card-body">
                         <div class="table-responsive">
-                            <table class="table table-striped" id="table-1">
+                            <table class="table table-striped" id="table-2">
                                 <thead>
                                     <tr>
                                         <th>Nombre</th>
@@ -32,12 +32,12 @@
                                 <tbody>
                                     @foreach($teachers as $teacher)
                                     <tr>
-                                        <td>{{ $teacher->name }}</td>
-                                        <td>{{ $teacher->lastname }}</td>
-                                        <td>{{ $teacher->email }}</td>
+                                        <td>{{ $teacher->name_teacher }}</td>
+                                        <td>{{ $teacher->lastname_teacher }}</td>
+                                        <td>{{ $teacher->email_teacher }}</td>
                                         <td>{{ $teacher->space }}</td>
-                                        <td>{{ $teacher->level }}</td>
-                                        <td>{{ $teacher->phone }}</td>
+                                        <td>{{ $teacher->level_teacher }}</td>
+                                        <td>{{ $teacher->phone_teacher }}</td>
                                     </tr>
                                     @endforeach
                                 </tbody>

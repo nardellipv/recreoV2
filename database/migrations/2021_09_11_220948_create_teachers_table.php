@@ -16,16 +16,16 @@ class CreateTeachersTable extends Migration
         Schema::create('teachers', function (Blueprint $table) {
             $table->id();
 
-            $table->string('name');
-            $table->string('lastname');
-            $table->string('dni');
+            $table->string('name_teacher');
+            $table->string('lastname_teacher');
+            $table->string('dni_teacher');
             $table->string('space');
-            $table->enum('level', ['1', '2', '3']);
+            $table->enum('level_teacher', ['1', '2', '3']);
             $table->enum('other_school', ['SI', 'NO']);
-            $table->string('name_school')->nullable();;
-            $table->string('phone');
-            $table->string('email', 160)->unique();
-            $table->enum('first_time', ['SI', 'NO']);
+            $table->string('name_school_teacher')->nullable();;
+            $table->string('phone_teacher');
+            $table->string('email_teacher', 160)->unique();
+            $table->enum('first_time_teacher', ['SI', 'NO']);
 
             //relaciones
 

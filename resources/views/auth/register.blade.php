@@ -67,24 +67,24 @@
 
                                     <div class="row">
                                         <div class="form-group col-6">
-                                            <label for="frist_name">Nombre</label>
-                                            <input id="name" type="text"
-                                                class="form-control @error('name') is-invalid @enderror" name="name"
-                                                value="{{ old('name') }}" required autocomplete="name" autofocus>
+                                            <label for="name">Nombre</label>
+                                            <input id="name_school" type="text"
+                                                class="form-control @error('name_school') is-invalid @enderror" name="name_school"
+                                                value="{{ old('name_school') }}" required autocomplete="name" autofocus>
 
-                                            @error('name')
+                                            @error('name_school')
                                             <span class="invalid-feedback" role="alert">
                                                 <strong>{{ $message }}</strong>
                                             </span>
                                             @enderror
                                         </div>
                                         <div class="form-group col-6">
-                                            <label for="last_name">Email</label>
-                                            <input id="email" type="email"
-                                                class="form-control @error('email') is-invalid @enderror" name="email"
-                                                value="{{ old('email') }}" required autocomplete="email">
+                                            <label for="email">Email</label>
+                                            <input id="email_school" type="email_school"
+                                                class="form-control @error('email_school') is-invalid @enderror" name="email_school"
+                                                value="{{ old('email_school') }}" required autocomplete="email">
 
-                                            @error('email')
+                                            @error('email_school')
                                             <span class="invalid-feedback" role="alert">
                                                 <strong>{{ $message }}</strong>
                                             </span>
@@ -121,11 +121,11 @@
                                         </div>
                                         <div class="form-group col-6">
                                             <label for="phone">Teléfono</label>
-                                            <input id="phone" type="phone"
-                                                class="form-control @error('phone') is-invalid @enderror" name="phone"
-                                                value="{{ old('phone') }}" required autocomplete="phone">
+                                            <input id="phone" type="phone_school"
+                                                class="form-control @error('phone_school') is-invalid @enderror" name="phone_school"
+                                                value="{{ old('phone_school') }}" required autocomplete="phone_school">
 
-                                            @error('phone')
+                                            @error('phone_school')
                                             <span class="invalid-feedback" role="alert">
                                                 <strong>{{ $message }}</strong>
                                             </span>
@@ -185,7 +185,7 @@
                                             <label class="d-block">Pariticipación del colegio</label>
                                             <div class="form-check form-check-inline">
                                                 <label class="selectgroup-item">
-                                                    <input type="radio" name="first_time" value="SI"
+                                                    <input type="radio" name="first_time_school" value="SI"
                                                         class="selectgroup-input-radio" required>
                                                     <span class="selectgroup-button">Participo por primera
                                                         vez</span>
@@ -193,7 +193,7 @@
                                             </div>
                                             <div class="form-check form-check-inline">
                                                 <label class="selectgroup-item">
-                                                    <input type="radio" name="first_time" value="NO"
+                                                    <input type="radio" name="first_time_school" value="NO"
                                                         class="selectgroup-input-radio">
                                                     <span class="selectgroup-button">Ya participe con
                                                         anterioridad</span>

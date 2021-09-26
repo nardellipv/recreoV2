@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\TeacherRequest;
+use App\Http\Requests\UpdateTeacherRequest;
 use App\Teacher;
 
 
@@ -18,18 +19,17 @@ class TeacherController extends Controller
 
     public function storeTeacher(TeacherRequest $request)
     {
-        // dd($request['name']);
         Teacher::create([
-            'name' => $request['name'],
-            'lastname' => $request['lastname'],
-            'phone' => $request['phone'],
-            'dni' => $request['dni'],
-            'email' => $request['email'],
+            'name_teacher' => $request['name_teacher'],
+            'lastname_teacher' => $request['lastname_teacher'],
+            'phone_teacher' => $request['phone_teacher'],
+            'dni_teacher' => $request['dni_teacher'],
+            'email_teacher' => $request['email_teacher'],
             'space' => $request['space'],
-            'level' => $request['level'],
-            'first_time' => $request['first_time'],
+            'level_teacher' => $request['level_teacher'],
+            'first_time_teacher' => $request['first_time_teacher'],
             'other_school' => $request['other_school'],
-            'name_school' => $request['name_school'],
+            'name_school_teacher' => $request['name_school_teacher'],
             'user_id' => current_user()->id,
         ]);
 
@@ -44,22 +44,22 @@ class TeacherController extends Controller
         return view('web.teachers.editTeacher', compact('teacher'));
     }
 
-    public function updateTeacher(TeacherRequest $request, $id)
+    public function updateTeacher(UpdateTeacherRequest $request, $id)
     {
         $teacher = Teacher::find($id);
 
         $this->authorize('updateTeacher', $teacher);
 
-        $teacher->name = $request['name'];
-        $teacher->lastname = $request['lastname'];
-        $teacher->dni = $request['dni'];
+        $teacher->name_teacher = $request['name_teacher'];
+        $teacher->lastname_teacher = $request['lastname_teacher'];
+        $teacher->dni_teacher = $request['dni_teacher'];
         $teacher->space = $request['space'];
-        $teacher->level = $request['level'];
+        $teacher->level_teacher = $request['level_teacher'];
         $teacher->other_school = $request['other_school'];
-        $teacher->name_school = $request['name_school'];
-        $teacher->phone = $request['phone'];
-        $teacher->email = $request['email'];
-        $teacher->first_time = $request['first_time'];
+        $teacher->name_school_teacher = $request['name_school_teacher'];
+        $teacher->phone_teacher = $request['phone_teacher'];
+        $teacher->email_teacher = $request['email_teacher'];
+        $teacher->first_time_teacher = $request['first_time_teacher'];
         $teacher->save();
 
         toast('Profesor modificado correctamente!', 'success');

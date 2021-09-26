@@ -22,6 +22,6 @@ class TeacherPolicy
 
     public function updateTeacher(User $user, Teacher $teacher)
     {
-        return $user->id === $teacher->user_id OR $user->userType === 'Admin';
+        return $user->id === $teacher->user_id;
     }
 }

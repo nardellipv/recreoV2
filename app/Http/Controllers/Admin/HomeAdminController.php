@@ -6,16 +6,16 @@ use App\Http\Controllers\Controller;
 use App\Student;
 use App\Teacher;
 use App\User;
-use Illuminate\Http\Request;
+
 
 class HomeAdminController extends Controller
 {
     public function index()
     {
-        $countStudentLevel1 = Student::where('level', 1)
+        $countStudentLevel1 = Student::where('level_student', 1)
             ->count();
 
-        $countStudentLevel2 = Student::where('level', 2)
+        $countStudentLevel2 = Student::where('level_student', 2)
             ->count();
 
         $countTeacher = Teacher::count();
@@ -29,4 +29,6 @@ class HomeAdminController extends Controller
             'countStudentLevel2'
         ));
     }
+
+
 }

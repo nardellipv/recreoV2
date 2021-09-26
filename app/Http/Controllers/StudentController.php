@@ -18,15 +18,15 @@ class StudentController extends Controller
     public function storeStudent(StudentRequest $request)
     {
         Student::create([
-            'name' => $request['name'],
-            'lastname' => $request['lastname'],
-            'phone' => $request['phone'],
-            'dni' => $request['dni'],
+            'name_student' => $request['name_student'],
+            'lastname_student' => $request['lastname_student'],
+            'phone_student' => $request['phone_student'],
+            'dni_student' => $request['dni_student'],
             'birth_date' => $request['birth_date'],
-            'email' => $request['email'],
-            'level' => $request['level'],
+            'email_student' => $request['email_student'],
+            'level_student' => $request['level_student'],
             'classroom' => $request['classroom'],
-            'first_time' => $request['first_time'],
+            'first_time_student' => $request['first_time_student'],
             'genre' => $request['genre'],
             'user_id' => current_user()->id,
         ]);
@@ -48,15 +48,15 @@ class StudentController extends Controller
 
         $this->authorize('updateStudent', $student);
 
-        $student->name = $request['name'];
-        $student->lastname = $request['lastname'];
-        $student->dni = $request['dni'];
-        $student->phone = $request['phone'];
+        $student->name_student = $request['name_student'];
+        $student->lastname_student = $request['lastname_student'];
+        $student->dni_student = $request['dni_student'];
+        $student->phone_student = $request['phone_student'];
         $student->birth_date = $request['birth_date'];
-        $student->email = $request['email'];
-        $student->level = $request['level'];
+        $student->email_student = $request['email_student'];
+        $student->level_student = $request['level_student'];
         $student->classroom = $request['classroom'];
-        $student->first_time = $request['first_time'];
+        $student->first_time_student = $request['first_time_student'];
         $student->genre = $request['genre'];
         $student->save();
 

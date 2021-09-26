@@ -1,4 +1,4 @@
-@extends('layouts.main')
+@extends('layouts.mainAdmin')
 
 @section('content')
 <section class="section">
@@ -10,7 +10,7 @@
           <div class="card-header">
             <h4>Editar Alumno {{ $student->name }}</h4>
           </div>
-          <form action="{{ route('student.update', $student) }}" method="POST">
+          <form action="{{ route('admin.studentUpdate', $student) }}" method="POST">
             @csrf
             <div class="card-body">
               <div class="form-row">

@@ -31,13 +31,13 @@
                 <tbody>
                   @foreach($schools as $school)
                   <tr>
-                    <td>{{ $school->name }}</td>
-                    <td>{{ $school->phone }}</td>
-                    <td>{{ $school->type }}</td>
-                    <td>{{ $school->email }}</td>
+                    <td>{{ $school->name_school }}</td>
+                    <td>{{ $school->phone_school }}</td>
+                    <td>{{ $school->type_school }}</td>
+                    <td>{{ $school->email_school }}</td>
                     <td>
                       <div class="buttons">
-                          <a href="{{ route('school.edit', $school) }}"
+                          <a href="{{ route('admin.schoolEdit', $school) }}"
                               class="btn btn-sm btn-info">Editar</a>
                       </div>
                     </td>

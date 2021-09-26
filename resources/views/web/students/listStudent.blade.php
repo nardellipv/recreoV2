@@ -31,12 +31,12 @@
                                 <tbody>
                                     @foreach($students as $student)
                                     <tr>
-                                        <td>{{ $student->name }}</td>
-                                        <td>{{ $student->lastname }}</td>
-                                        <td>{{ $student->dni }}</td>
-                                        <td>{{ $student->level }}</td>
-                                        <td>{{ $student->phone }}</td>
-                                        <td>{{ $student->email }}</td>
+                                        <td>{{ $student->name_student }}</td>
+                                        <td>{{ $student->lastname_student }}</td>
+                                        <td>{{ $student->dni_student }}</td>
+                                        <td>{{ $student->level_student }}</td>
+                                        <td>{{ $student->phone_student }}</td>
+                                        <td>{{ $student->email_student }}</td>
                                         <td>
                                             <div class="buttons">
                                                 <a href="{{ route('student.edit', $student) }}"

@@ -33,18 +33,18 @@
                                 <tbody>
                                     @foreach($teachers as $teacher)
                                     <tr>
-                                        <td>{{ $teacher->name }}</td>
-                                        <td>{{ $teacher->lastname }}</td>
-                                        <td>{{ $teacher->dni }}</td>
+                                        <td>{{ $teacher->name_teacher }}</td>
+                                        <td>{{ $teacher->lastname_teacher }}</td>
+                                        <td>{{ $teacher->dni_teacher }}</td>
                                         <td>{{ $teacher->space }}</td>
-                                        @if($teacher->level != '3')
-                                        <td>{{ $teacher->level }}</td>
+                                        @if($teacher->level_teacher != '3')
+                                        <td>{{ $teacher->level_teacher }}</td>
                                         @else
                                         <td>1 y 2</td>
                                         @endif
-                                        <td>{{ $teacher->phone }}</td>
-                                        <td>{{ $teacher->email }}</td>
-                                        <td>{{ $teacher->first_time }}</td>
+                                        <td>{{ $teacher->phone_teacher }}</td>
+                                        <td>{{ $teacher->email_teacher }}</td>
+                                        <td>{{ $teacher->first_time_teacher }}</td>
                                         <td>
                                             <div class="buttons">
                                                 <a href="{{ route('teacher.edit', $teacher) }}"

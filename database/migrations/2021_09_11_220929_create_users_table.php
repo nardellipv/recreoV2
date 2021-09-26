@@ -15,16 +15,16 @@ class CreateUsersTable extends Migration
     {
         Schema::create('users', function (Blueprint $table) {
             $table->id();
-            $table->string('name');
 
+            $table->string('name_school');
             $table->string('address');
             $table->integer('postal_code');
-            $table->string('phone');
+            $table->string('phone_school');
+            $table->string('email_school', 120)->unique();
             $table->enum('type', ['PRIVADA', 'PUBLICA']);
             $table->string('director1');
             $table->string('director2');
-            $table->string('email', 120)->unique();
-            $table->enum('first_time', ['SI', 'NO']);
+            $table->enum('first_time_school', ['SI', 'NO']);
             $table->enum('sede', ['SI', 'NO'])->default('NO');
             $table->enum('userType', ['Colegio', 'Admin'])->default('Colegio');
 

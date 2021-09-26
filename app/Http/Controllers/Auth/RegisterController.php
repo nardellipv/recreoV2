@@ -71,11 +71,11 @@ class RegisterController extends Controller
     protected function validator(array $data)
     {
         return Validator::make($data, [
-            'name' => ['required', 'string', 'max:255'],
-            'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
+            'name_school' => ['required', 'string', 'max:255'],
+            'email_school' => ['required', 'string', 'email', 'max:255', 'unique:users'],
             'address' => ['required', 'string', 'max:255'],
             'postal_code' => ['required', 'numeric'],
-            'phone' => ['required', 'numeric'],
+            'phone_school' => ['required', 'numeric'],
             'director1' => ['required', 'string', 'max:255'],
             'director2' => ['required', 'string', 'max:255'],
             'password' => ['required', 'string', 'min:8', 'confirmed'],
@@ -91,16 +91,17 @@ class RegisterController extends Controller
     protected function create(array $data)
     {
         return User::create([
-            'name' => $data['name'],
-            'email' => $data['email'],
+            'name_school' => $data['name_school'],
+            'email_school' => $data['email_school'],
             'address' => $data['address'],
             'postal_code' => $data['postal_code'],
-            'phone' => $data['phone'],
+            'phone_school' => $data['phone_school'],
             'director1' => $data['director1'],
             'director2' => $data['director2'],
             'password' => Hash::make($data['password']),
             'province_id' => $data['province_id'],
             'region_id' => $data['region_id'],
+            'first_time_school' => $data['first_time_school'],
             'admin' => 'N',
         ]);
     }

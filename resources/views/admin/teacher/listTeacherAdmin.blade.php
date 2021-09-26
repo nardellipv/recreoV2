@@ -33,15 +33,15 @@
                 <tbody>
                   @foreach($teachers as $teacher)
                   <tr>
-                    <td>{{ $teacher->name }}</td>
-                    <td>{{ $teacher->lastname }}</td>
-                    <td>{{ $teacher->email }}</td>
+                    <td>{{ $teacher->name_teacher }}</td>
+                    <td>{{ $teacher->lastname_teacher }}</td>
+                    <td>{{ $teacher->email_teacher }}</td>
                     <td>{{ $teacher->space }}</td>
-                    <td>{{ $teacher->level }}</td>
-                    <td>{{ $teacher->phone }}</td>
+                    <td>{{ $teacher->level_teacher }}</td>
+                    <td>{{ $teacher->phone_teacher }}</td>
                     <td>
                       <div class="buttons">
-                          <a href="{{ route('teacher.edit', $teacher) }}"
+                          <a href="{{ route('admin.teacherEdit', $teacher) }}"
                               class="btn btn-sm btn-info">Editar</a>
                       </div>
                     </td>

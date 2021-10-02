@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\NoteStudentRequest;
 use App\Http\Requests\StudentRequest;
 use App\Student;
 
@@ -64,16 +65,30 @@ class StudentController extends Controller
         return back();
     }
 
+    public function addNoteStudent(NoteStudentRequest $request, $id)
+    {
+        $student = Student::find($id);
+
+        $this->authorize('updateStudent', $student);
+
+        $student->first_note = $request['first_note'];
+        $student->second_note = $request['second_note'];
+        $student->total_note = $student->first_note + $student->second_note;
+        $student->save();
+
+        toast('Nota agregada correctamente!', 'success');
+        return back();
+    }
+
     public function deleteStudent($id)
     {
         $student = Student::find($id);
 
         $this->authorize('updateStudent', $student);
-        
+
         $student->delete();
 
         toast('Estudiante eliminado correctamente!', 'success');
         return back();
     }
-
 }

@@ -2,7 +2,8 @@
 
 @section('css')
 <link rel="stylesheet" href="{{ asset('assets/bundles/datatables/datatables.min.css') }}">
-<link rel="stylesheet" href="{{ asset('assets/bundles/datatables/DataTables-1.10.16/css/dataTables.bootstrap4.min.css') }}">
+<link rel="stylesheet"
+    href="{{ asset('assets/bundles/datatables/DataTables-1.10.16/css/dataTables.bootstrap4.min.css') }}">
 @endsection
 
 @section('content')
@@ -10,6 +11,7 @@
     <div class="section-body">
         <div class="row">
             <div class="col-12">
+                @include('alerts.error')
                 <div class="card">
                     <div class="card-header">
                         <h4>Listado rápido de Alumnos</h4>
@@ -23,7 +25,7 @@
                                         <th>Apellido</th>
                                         <th>DNI</th>
                                         <th>Nivel</th>
-                                        <th>Teléfono</th>
+                                        <th>Nota Total</th>
                                         <th>email</th>
                                         <th>Acción</th>
                                     </tr>
@@ -35,13 +37,30 @@
                                         <td>{{ $student->lastname_student }}</td>
                                         <td>{{ $student->dni_student }}</td>
                                         <td>{{ $student->level_student }}</td>
-                                        <td>{{ $student->phone_student }}</td>
+                                        <td>
+                                            {!! $student->total_note == '' ? '<div class="badge badge-danger">Sin Nota
+                                            </div>' : $student->total_note !!}
+                                            @if($student->level_student == 2)
+                                            @if(!$student->second_note AND $student->first_note)
+                                            <div class="badge badge-warning">Falta Práctica</div>
+                                            @endif
+                                            @endif
+                                        </td>
                                         <td>{{ $student->email_student }}</td>
                                         <td>
-                                            <div class="buttons">
-                                                <a href="{{ route('student.edit', $student) }}"
-                                                    class="btn btn-sm btn-info">Editar</a>
-                                                <a href="{{ route('student.delete', $student) }}" class="btn btn-sm btn-danger">Eliminar</a>
+                                            <div class="btn-group mb-3" role="group" aria-label="Basic example">
+                                                <a href="{{ route('student.edit', $student) }}" type="button"
+                                                    class="btn btn-success">Editar</a>
+                                                @if($registerNote->status_button == '1')
+                                                <button type="button" class="btn btn-warning" data-toggle="modal"
+                                                    data-target="#modalAddNoteStudent{{ $student->id }}">Subir
+                                                    Nota</button>
+                                                @else
+                                                <button type="button" class="btn btn-warning" disabled>Subir
+                                                    Nota</button>
+                                                @endif
+                                                <a href="{{ route('student.delete', $student) }}" type="button"
+                                                    class="btn btn-danger">Eliminar</a>
                                             </div>
                                         </td>
                                     </tr>
@@ -55,6 +74,9 @@
         </div>
     </div>
 </section>
+@foreach($students as $student)
+@include('web.students._agregarNotaModal')
+@endforeach
 @endsection
 
 @section('js')

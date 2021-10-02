@@ -34,8 +34,9 @@
                                     <div class="form-group">
                                         <label for="email_school">Email</label>
                                         <input id="email_school" type="email"
-                                            class="form-control @error('email_school') is-invalid @enderror" name="email_school"
-                                            value="{{ old('email_school') }}" required autocomplete="email_school" autofocus>
+                                            class="form-control @error('email_school') is-invalid @enderror"
+                                            name="email_school" value="{{ old('email_school') }}" required
+                                            autocomplete="email_school" autofocus>
                                         @error('email_school')
                                         <span class="invalid-feedback" role="alert">
                                             <strong>{{ $message }}</strong>
@@ -79,10 +80,18 @@
                                 </div>
                                 <div class="row sm-gutters">
                                     <div class="col-12">
-                                        <a href="{{ route('register') }}" type="submit" class="btn btn-warning btn-lg btn-block" tabindex="4">
+                                        @if($registerSchool->status_button == '1')
+                                        <a href="{{ route('register') }}" type="submit"
+                                            class="btn btn-warning btn-lg btn-block" tabindex="4">
                                             Registrar Colegio
                                         </a>
-                                    </div>                                    
+                                        @else
+                                        <a href="#" type="submit"
+                                            class="btn btn-warning btn-lg btn-block disabled" tabindex="4">
+                                            Registrar Colegio
+                                        </a>
+                                        @endif
+                                    </div>
                                 </div>
                             </div>
                         </div>

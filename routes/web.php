@@ -33,11 +33,14 @@ Route::middleware(['auth'])->group(function () {
         Route::get('/alumno/editar/{id}', 'StudentController@editStudent')->name('student.edit');
         Route::post('/alumno/update/{id}', 'StudentController@updateStudent')->name('student.update');
         Route::get('/alumno/eliminar/{id}', 'StudentController@deleteStudent')->name('student.delete');
+        Route::post('/alumno/agregar-nota/{id}', 'StudentController@addNoteStudent')->name('student.addNote');
     });
 });
 
 Route::middleware(['auth','AdminMiddleware'])->group(function () {
     Route::get('/admin/dashboard', 'Admin\HomeAdminController@index')->name('admin.dashboard');
+
+    Route::post('/admin/estados/editar/{id}', 'Admin\HomeAdminController@editStatus')->name('admin.editStatus');
     
     Route::get('users/export/nivel1', 'Admin\StudentAdminController@exportStudentLevel1')->name('admin.exportStudentLevel1');
     Route::get('users/export/nivel2', 'Admin\StudentAdminController@exportStudentLevel2')->name('admin.exportStudentLevel2');

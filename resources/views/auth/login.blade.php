@@ -35,8 +35,9 @@
                                         <label for="email_school">Email</label>
                                         <input id="email_school" type="email"
                                             class="form-control @error('email_school') is-invalid @enderror"
-                                            name="email_school" value="{{ old('email_school') }}" required
-                                            autocomplete="email_school" autofocus>
+                                            name="email_school" value="{{ old('email_school') }}"
+                                            placeholder="Email del colegio" required autocomplete="email_school"
+                                            autofocus>
                                         @error('email_school')
                                         <span class="invalid-feedback" role="alert">
                                             <strong>{{ $message }}</strong>
@@ -54,7 +55,8 @@
                                         </div>
                                         <input id="password" type="password"
                                             class="form-control @error('password') is-invalid @enderror" name="password"
-                                            required autocomplete="current-password">
+                                            placeholder="Contraseña del colegio" required
+                                            autocomplete="current-password">
 
                                         @error('password')
                                         <span class="invalid-feedback" role="alert">
@@ -86,8 +88,8 @@
                                             Registrar Colegio
                                         </a>
                                         @else
-                                        <a href="#" type="submit"
-                                            class="btn btn-warning btn-lg btn-block disabled" tabindex="4">
+                                        <a href="#" type="submit" class="btn btn-warning btn-lg btn-block disabled"
+                                            tabindex="4">
                                             Registrar Colegio
                                         </a>
                                         @endif

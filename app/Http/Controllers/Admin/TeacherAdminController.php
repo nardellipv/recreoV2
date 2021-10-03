@@ -83,4 +83,44 @@ class TeacherAdminController extends Controller
             ];
         });
     }
+
+    public function exportTeacherStudent()
+    {
+        $teacherStudent1 = Teacher::join('users', 'teachers.user_id', 'users.id')
+            ->join('students', 'teachers.user_id', 'students.user_id')
+            ->where('teachers.level_teacher','1')
+            ->get();
+
+        $teacherStudent2 = Teacher::join('users', 'teachers.user_id', 'users.id')
+            ->join('students', 'teachers.user_id', 'students.user_id')
+            ->where('teachers.level_teacher','2')
+            ->get();
+
+        $teacherStudent3 = Teacher::join('users', 'teachers.user_id', 'users.id')
+            ->join('students', 'teachers.user_id', 'students.user_id')
+            ->where('teachers.level_teacher','3')
+            ->get();
+
+        $teacherStudent = new SheetCollection([
+            "Nivel 1" => $teacherStudent1,
+            "Nivel 2" => $teacherStudent2,
+            "Ambos Niveles" => $teacherStudent3,
+        ]);
+
+        return (fastexcel($teacherStudent))->download("Profesores-Estudiantes.xlsx", function ($user) {
+            return [
+                'Nombre Profesor' => ucfirst($user->name_teacher),
+                'Apellido Profesor' => ucfirst($user->lastname_teacher),
+                'Teléfono Profesor' => ucfirst($user->phone_teacher),
+                'email Profesor' => lcfirst($user->email_teacher),
+                'Espacio' => ucfirst($user->space),
+                'Nivel' => ucfirst($user->level_teacher),
+                'Escuela' => ucfirst($user->name_school),
+                'Dirección Escuela' => ucfirst($user->address),
+                'Nombre Alumno' => ucfirst($user->name_student),
+                'Apellido Alumno' => ucfirst($user->lastname_student),
+                'Email Alumno' => ucfirst($user->email_student),
+            ];
+        });
+    }
 }

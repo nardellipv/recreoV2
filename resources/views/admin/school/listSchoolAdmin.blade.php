@@ -33,7 +33,7 @@
                   <tr>
                     <td>{{ $school->name_school }}</td>
                     <td>{{ $school->phone_school }}</td>
-                    <td>{{ $school->type_school }}</td>
+                    <td>{{ $school->type }}</td>
                     <td>{{ $school->email_school }}</td>
                     <td>
                       <div class="buttons">

@@ -25,19 +25,6 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        view::composer('web.parts._menu', function ($view) {
-
-            $registerTeacher = Buttons::where('id', 3)
-                ->first();
-            $registerStudent = Buttons::where('id', 4)
-                ->first();
-
-            $view->with([
-                'registerTeacher' => $registerTeacher,
-                'registerStudent' => $registerStudent,
-            ]);
-        });
-
         view::composer(
             [
                 'auth.login',

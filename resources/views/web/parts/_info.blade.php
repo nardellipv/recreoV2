@@ -90,15 +90,15 @@
                         <label class="d-block">Participación con anterioridad</label>
                         <div class="form-check form-check-inline">
                             <label class="selectgroup-item">
-                                <input type="radio" name="first_time" disabled class="selectgroup-input-radio"
-                                    {{ $school->first_time == 'SI' ? 'checked' : ''}} readonly>
+                                <input type="radio" name="first_time_school" disabled class="selectgroup-input-radio"
+                                    {{ $school->first_time_school == 'SI' ? 'checked' : ''}} readonly>
                                 <span class="selectgroup-button">Participo por primera vez</span>
                             </label>
                         </div>
                         <div class="form-check form-check-inline">
                             <label class="selectgroup-item">
-                                <input type="radio" name="first_time" disabled class="selectgroup-input-radio"
-                                    {{ $school->first_time == 'NO' ? 'checked' : ''}}>
+                                <input type="radio" name="first_time_school" disabled class="selectgroup-input-radio"
+                                    {{ $school->first_time_school == 'NO' ? 'checked' : ''}}>
                                 <span class="selectgroup-button">He participado anteriormente</span>
                             </label>
                         </div>

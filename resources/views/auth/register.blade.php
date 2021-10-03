@@ -55,11 +55,11 @@
                                             <label>Localidad</label>
                                             <select class="form-control select2" name="region_id">
                                                 @if(isset($regions))
-                                                    @foreach($regions as $region)
-                                                        <option value={{ $region->id }}>{{ $region->name }}</option>
-                                                    @endforeach
+                                                @foreach($regions as $region)
+                                                <option value={{ $region->id }}>{{ $region->name }}</option>
+                                                @endforeach
                                                 @else
-                                                    <option value="">Seleccione una localidad</option>
+                                                <option value="">Seleccione una localidad</option>
                                                 @endif
                                             </select>
                                         </div>
@@ -69,8 +69,9 @@
                                         <div class="form-group col-6">
                                             <label for="name">Nombre</label>
                                             <input id="name_school" type="text"
-                                                class="form-control @error('name_school') is-invalid @enderror" name="name_school"
-                                                value="{{ old('name_school') }}" required autocomplete="name" autofocus>
+                                                class="form-control @error('name_school') is-invalid @enderror"
+                                                name="name_school" value="{{ old('name_school') }}" required
+                                                autocomplete="name" placeholder="Nombre del colegio" autofocus>
 
                                             @error('name_school')
                                             <span class="invalid-feedback" role="alert">
@@ -81,8 +82,9 @@
                                         <div class="form-group col-6">
                                             <label for="email">Email</label>
                                             <input id="email_school" type="email_school"
-                                                class="form-control @error('email_school') is-invalid @enderror" name="email_school"
-                                                value="{{ old('email_school') }}" required autocomplete="email">
+                                                class="form-control @error('email_school') is-invalid @enderror"
+                                                name="email_school" value="{{ old('email_school') }}" required
+                                                placeholder="Email del colegio" autocomplete="email">
 
                                             @error('email_school')
                                             <span class="invalid-feedback" role="alert">
@@ -90,13 +92,14 @@
                                             </span>
                                             @enderror
                                         </div>
-                                    </div>                                    
+                                    </div>
 
                                     <div class="form-group">
                                         <label for="email">Dirección</label>
                                         <input id="address" type="text"
                                             class="form-control @error('address') is-invalid @enderror" name="address"
-                                            value="{{ old('address') }}" required autocomplete="address">
+                                            value="{{ old('address') }}" placeholder="Dirección del colegio" required
+                                            autocomplete="address">
 
                                         @error('address')
                                         <span class="invalid-feedback" role="alert">
@@ -110,8 +113,9 @@
                                             <label for="postal_code">Código Postal</label>
                                             <input id="postal_code" name="postal_code" type="number"
                                                 class="form-control number @error('postal_code') is-invalid @enderror"
-                                                name="postal_code" value="{{ old('postal_code') }}" required 
-                                                autocomplete="postal_code" autofocus>
+                                                name="postal_code" value="{{ old('postal_code') }}" required
+                                                autocomplete="postal_code" placeholder="Código Postal del colegio"
+                                                autofocus>
 
                                             @error('postal_code')
                                             <span class="invalid-feedback" role="alert">
@@ -122,8 +126,9 @@
                                         <div class="form-group col-6">
                                             <label for="phone">Teléfono</label>
                                             <input id="phone" type="phone_school"
-                                                class="form-control @error('phone_school') is-invalid @enderror" name="phone_school"
-                                                value="{{ old('phone_school') }}" required autocomplete="phone_school">
+                                                class="form-control @error('phone_school') is-invalid @enderror"
+                                                name="phone_school" value="{{ old('phone_school') }}"
+                                                placeholder="Teléfono del colegio" required autocomplete="phone_school">
 
                                             @error('phone_school')
                                             <span class="invalid-feedback" role="alert">
@@ -139,7 +144,7 @@
                                             <input id="director1" type="text"
                                                 class="form-control @error('director1') is-invalid @enderror"
                                                 name="director1" value="{{ old('director1') }}" required
-                                                autocomplete="director1" autofocus>
+                                                autocomplete="director1" placeholder="Director del colegio" autofocus>
 
                                             @error('director1')
                                             <span class="invalid-feedback" role="alert">
@@ -151,7 +156,8 @@
                                             <label for="director2">Vice Director</label>
                                             <input id="director2" type="director2"
                                                 class="form-control @error('director2') is-invalid @enderror"
-                                                name="director2" value="{{ old('director2') }}" required
+                                                name="director2" value="{{ old('director2') }}"
+                                                placeholder="Vice director del colegio" required
                                                 autocomplete="director2">
 
                                             @error('director2')
@@ -164,7 +170,7 @@
 
                                     <div class="row">
                                         <div class="form-group col-6">
-                                            <label class="d-block">Gestión</label>
+                                            <label class="d-block">Gestión del Colegio</label>
                                             <div class="form-check form-check-inline">
                                                 <label class="selectgroup-item">
                                                     <input type="radio" name="type" value="PUBLICA"

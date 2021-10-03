@@ -8,6 +8,7 @@
         <a href="{{ route('admin.exportStudentLevel2') }}" class="btn btn-primary">Exportar Estudiantes Nivel 2</a>
         <a href="{{ route('admin.exportSchoolLevelStudent') }}" class="btn btn-primary">Colegios por Nivel y Cantidad Alumnos</a>
         <a href="{{ route('admin.exportTeacherSchoolLevel') }}" class="btn btn-primary">Profesores por Escuela y Nivel</a>
+        <a href="{{ route('admin.exportTeacherStudent') }}" class="btn btn-primary">Prof.-Est.</a>
       </div>
     </div>
   </div>

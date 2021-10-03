@@ -24,9 +24,7 @@
             class="fas fa-chalkboard-teacher"></i><span>Profesores</span></a>
         <ul class="dropdown-menu">
           <li><a class="nav-link" href="{{ route('teacher.list') }}">Listado de profesores</a></li>
-          @if($registerTeacher->status_button == '1')
           <li><a class="nav-link" href="{{ route('teacher.add') }}">Agregar nuevo profesor</a></li>
-          @endif
         </ul>
       </li>
       <li class="dropdown {{ Request::segment(1) == 'alumno' ? 'active' : '' }}">
@@ -34,9 +32,7 @@
             class="fas fa-book-reader"></i><span>Estudiantes</span></a>
         <ul class="dropdown-menu">
           <li><a class="nav-link" href="{{ route('student.list') }}">Listado de estudiantes</a></li>
-          @if($registerStudent->status_button == '1')
           <li><a class="nav-link" href="{{ route('student.add') }}">Agregar nuevo estudiante</a></li>
-          @endif
         </ul>
       </li>
       <li>

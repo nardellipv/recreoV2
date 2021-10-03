@@ -20,34 +20,34 @@ Route::middleware(['auth'])->group(function () {
     Route::post('/colegio/update/{id}', 'SchoolController@updateSchool')->name('school.update');
 
     Route::get('/profesor/listado', 'TeacherController@listTeacher')->name('teacher.list');
-    Route::view('/profesor/agregar', 'web.teachers.addTeacher')->name('teacher.add');
+    Route::view('/profesor/agregar', 'web.teachers.addTeacher')->name('teacher.add')->middleware('RegisterTeacherMiddleware');
     Route::post('/profesor/alta-profesor', 'TeacherController@storeTeacher')->name('teacher.store');
     Route::get('/profesor/editar/{id}', 'TeacherController@editTeacher')->name('teacher.edit');
     Route::post('/profesor/update/{id}', 'TeacherController@updateTeacher')->name('teacher.update');
     Route::get('/profesor/eliminar/{id}', 'TeacherController@deleteTeacher')->name('teacher.delete');
 
-    Route::middleware(['StudentMiddleware'])->group(function () {
-        Route::get('/alumno/listado', 'StudentController@listStudent')->name('student.list');
-        Route::post('/alumno/alta-alumno', 'StudentController@storeStudent')->name('student.store');
-        Route::view('/alumno/agregar', 'web.students.addStudent')->name('student.add');
-        Route::get('/alumno/editar/{id}', 'StudentController@editStudent')->name('student.edit');
-        Route::post('/alumno/update/{id}', 'StudentController@updateStudent')->name('student.update');
-        Route::get('/alumno/eliminar/{id}', 'StudentController@deleteStudent')->name('student.delete');
-        Route::post('/alumno/agregar-nota/{id}', 'StudentController@addNoteStudent')->name('student.addNote');
-    });
+    Route::get('/alumno/listado', 'StudentController@listStudent')->name('student.list');
+    Route::post('/alumno/alta-alumno', 'StudentController@storeStudent')->name('student.store');
+    Route::view('/alumno/agregar', 'web.students.addStudent')->name('student.add')->middleware(['StudentMiddleware', 'RegisterStudentMiddleware']);
+    Route::get('/alumno/editar/{id}', 'StudentController@editStudent')->name('student.edit');
+    Route::post('/alumno/update/{id}', 'StudentController@updateStudent')->name('student.update');
+    Route::get('/alumno/eliminar/{id}', 'StudentController@deleteStudent')->name('student.delete');
+    Route::post('/alumno/agregar-nota/{id}', 'StudentController@addNoteStudent')->name('student.addNote');
 });
 
-Route::middleware(['auth','AdminMiddleware'])->group(function () {
+Route::middleware(['auth', 'AdminMiddleware'])->group(function () {
     Route::get('/admin/dashboard', 'Admin\HomeAdminController@index')->name('admin.dashboard');
 
     Route::post('/admin/estados/editar/{id}', 'Admin\HomeAdminController@editStatus')->name('admin.editStatus');
-    
+
     Route::get('users/export/nivel1', 'Admin\StudentAdminController@exportStudentLevel1')->name('admin.exportStudentLevel1');
     Route::get('users/export/nivel2', 'Admin\StudentAdminController@exportStudentLevel2')->name('admin.exportStudentLevel2');
 
     Route::get('users/export/colegio', 'Admin\SchoolAdminController@exportSchoolLevelStudent')->name('admin.exportSchoolLevelStudent');
 
     Route::get('users/export/profesores', 'Admin\TeacherAdminController@exportTeacherSchoolLevel')->name('admin.exportTeacherSchoolLevel');
+    
+    Route::get('users/export/profesores_alumnos', 'Admin\TeacherAdminController@exportTeacherStudent')->name('admin.exportTeacherStudent');
 
     Route::get('/admin/profesor/listado', 'Admin\TeacherAdminController@adminListTeacher')->name('admin.teacher');
     Route::get('/admin/profesor/editar/{id}', 'Admin\TeacherAdminController@adminEditTeacher')->name('admin.teacherEdit');

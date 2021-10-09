@@ -4,16 +4,16 @@
 <head>
     <meta charset="UTF-8">
     <meta content="width=device-width, initial-scale=1, maximum-scale=1, shrink-to-fit=no" name="viewport">
-    <title>Otika - Admin Dashboard Template</title>
+    <title>Olimpiadas de Ciencia {{ date('Y') }}</title>
     <!-- General CSS Files -->
-    <link rel="stylesheet" href="assets/css/app.min.css">
-    <link rel="stylesheet" href="assets/bundles/bootstrap-social/bootstrap-social.css">
+    <link rel="stylesheet" href="{{ asset('assets/css/app.min.css') }}">
     <!-- Template CSS -->
-    <link rel="stylesheet" href="assets/css/style.css">
-    <link rel="stylesheet" href="assets/css/components.css">
+    <link rel="stylesheet" href="{{ asset('assets/css/style.css') }}">
+    <link rel="stylesheet" href="{{ asset('assets/css/components.css') }}">
     <!-- Custom style CSS -->
-    <link rel="stylesheet" href="assets/css/custom.css">
-    <link rel='shortcut icon' type='image/x-icon' href='assets/img/favicon.ico' />
+    @yield('css')
+    <link rel="stylesheet" href="{{ asset('assets/css/custom.css') }}">
+    <link rel='shortcut icon' type='image/x-icon' href="{{ asset('favicon.ico')}}" />
 </head>
 
 <body>
@@ -47,11 +47,11 @@
                                     <div class="form-group">
                                         <div class="d-block">
                                             <label for="password" class="control-label">Contraseña</label>
-                                            <div class="float-right">
+                                            {{-- <div class="float-right">
                                                 <a href="auth-forgot-password.html" class="text-small">
                                                     ¿Olvide mi contraseña?
                                                 </a>
-                                            </div>
+                                            </div> --}}
                                         </div>
                                         <input id="password" type="password"
                                             class="form-control @error('password') is-invalid @enderror" name="password"

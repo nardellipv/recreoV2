@@ -29,6 +29,7 @@ $factory->define(User::class, function (Faker $faker) {
         'email_school' => $faker->unique()->safeEmail,
         'first_time_school' => $faker->randomElement(['SI', 'NO']),
         'sede' => $faker->randomElement(['SI', 'NO']),
+        'sede' => $faker->randomElement(['Y', 'N']),
         'userType' => 'Colegio',
         'province_id' => $faker->randomElement([2, 6, 10, 14, 22, 26, 18, 30, 34, 38, 42, 46, 50, 54, 58, 62, 66, 70, 74, 78, 82, 86, 90, 94]),
         'region_id' => 6,

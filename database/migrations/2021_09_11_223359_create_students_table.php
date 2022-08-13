@@ -18,16 +18,19 @@ class CreateStudentsTable extends Migration
 
             $table->string('name_student');
             $table->string('lastname_student');
-            $table->string('dni_student');
+            $table->string('dni_student')->unique();
             $table->date('birth_date');
             $table->string('genre');
-            $table->string('phone_student');
-            $table->string('email_student')->nullable();
+            $table->string('phone_student')->unique();
+            $table->string('email_student')->unique();
             $table->string('classroom');
             $table->enum('level_student', ['1', '2']);
             $table->string('first_note')->nullable();
             $table->string('second_note')->nullable();
             $table->string('total_note')->nullable();
+            $table->string('first_note_inter')->nullable();
+            $table->string('second_note_inter')->nullable();
+            $table->string('total_note_inter')->nullable();
             $table->enum('first_time_student', ['SI', 'NO']);
 
             //relaciones

@@ -12,7 +12,8 @@ class SchoolAdminController extends Controller
 {
     public function adminListSchool()
     {
-        $schools = User::all();
+        $schools = User::with(['province', 'region'])
+        ->get();
 
         return view('admin.school.listSchoolAdmin', compact('schools'));
     }
@@ -65,7 +66,7 @@ class SchoolAdminController extends Controller
         ]);
 
         // return (fastexcel($level1))->download("Estudiantes por Provincia Nivel 1.xlsx");
-        return (fastexcel($schoolLevelStudent))->download("Estudiantes por Provincia Nivel 1.xlsx", function ($user) {
+        return (fastexcel($schoolLevelStudent))->download("colegios x nivel.xlsx", function ($user) {
             return [
                 'Nombre' => ucfirst($user->name_school),
                 'Dirección' => ucfirst($user->address),
@@ -81,5 +82,16 @@ class SchoolAdminController extends Controller
                 'Localidad' => ucfirst($user->region->name),
             ];
         });
+    }
+
+    public function adminEditDownload(Request $request, $id)
+    {
+        $school = User::find($id);
+        $school->download = $request->download;
+        $school->download_enter = $request->download_enter;
+        $school->download_level = $request->download_level;
+        $school->save();
+
+        return back();
     }
 }

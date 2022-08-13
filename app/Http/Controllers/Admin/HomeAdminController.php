@@ -38,8 +38,6 @@ class HomeAdminController extends Controller
     {
         $status = Buttons::find($id);
         $status->status_button = $request['status_button'];
-        $status->first_note_max = $request['first_note_max'];
-        $status->second_note_max = $request['second_note_max'];
         $status->save();
 
         toast('Estado modificado correctamente!', 'success');

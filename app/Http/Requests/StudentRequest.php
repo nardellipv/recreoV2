@@ -2,7 +2,9 @@
 
 namespace App\Http\Requests;
 
+use App\Student;
 use Illuminate\Foundation\Http\FormRequest;
+use Illuminate\Support\Facades\Auth;
 
 class StudentRequest extends FormRequest
 {
@@ -32,6 +34,7 @@ class StudentRequest extends FormRequest
             'classroom' => 'required',
             'genre' => 'required',
             'phone_student' => 'required | numeric',
+            'email_student' => 'required | email|unique:students,email_student,' . $this->user()->id,
             'first_time_student' => 'required',
         ];
     }
@@ -50,6 +53,8 @@ class StudentRequest extends FormRequest
             'genre.required' => 'El genero es requerido',
             'phone_student.required' => 'El teléfono es requerido',
             'phone_student.numeric' => 'El teléfono debe ser numérico',
+            'email_student.required' => 'El email es requerido',
+            'email_student.unique' => 'El email ya se encuentra registrado',
             'first_time_student.required' => 'Participa por primera vez es requerido',
         ];
     }

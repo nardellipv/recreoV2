@@ -35,4 +35,19 @@ class SchoolController extends Controller
         toast('El colegio fue modificado correctamente!', 'success');
         return back();
     }
+
+    public function testDownload($id)
+    {
+        $school = User::find($id);
+        
+        if($school->download_enter){
+            toast('Ya no puede voler a ingresar a esta área', 'error');
+            return back();
+        }
+
+        // $school->download_enter = 1;
+        // $school->save();
+
+        return view('web.download.listDownload');
+    }
 }

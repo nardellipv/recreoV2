@@ -2,8 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\NoteInterStudentRequest;
 use App\Http\Requests\NoteStudentRequest;
 use App\Http\Requests\StudentRequest;
+use App\Http\Requests\UpdateStudentRequest;
 use App\Student;
 
 class StudentController extends Controller
@@ -43,7 +45,7 @@ class StudentController extends Controller
         return view('web.students.editStudent', compact('student'));
     }
 
-    public function updateStudent(StudentRequest $request, $id)
+    public function updateStudent(UpdateStudentRequest $request, $id)
     {
         $student = Student::find($id);
 
@@ -74,6 +76,21 @@ class StudentController extends Controller
         $student->first_note = $request['first_note'];
         $student->second_note = $request['second_note'];
         $student->total_note = $student->first_note + $student->second_note;
+        $student->save();
+
+        toast('Nota agregada correctamente!', 'success');
+        return back();
+    }
+
+    public function addNoteInterStudent(NoteInterStudentRequest $request, $id)
+    {
+        $student = Student::find($id);
+
+        $this->authorize('updateStudent', $student);
+
+        $student->first_note_inter = $request['first_note_inter'];
+        $student->second_note_inter = $request['second_note_inter'];
+        $student->total_note_inter = $student->first_note_inter + $student->second_note_inter;
         $student->save();
 
         toast('Nota agregada correctamente!', 'success');

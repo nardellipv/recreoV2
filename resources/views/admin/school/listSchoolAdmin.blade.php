@@ -23,8 +23,14 @@
                   <tr>
                     <th>Nombre</th>
                     <th>Teléfono</th>
+                    <th>provincia</th>
+                    <th>localidad</th>
                     <th>Tipo</th>
                     <th>email</th>
+                    <th>Sede</th>
+                    <th>Donwload</th>
+                    <th>Ingreso</th>
+                    <th>Nivel</th>
                     <th>Acción</th>
                   </tr>
                 </thead>
@@ -33,15 +39,49 @@
                   <tr>
                     <td>{{ $school->name_school }}</td>
                     <td>{{ $school->phone_school }}</td>
+                    <td>{{ $school->province->name }}</td>
+                    <td>{{ $school->region->name }}</td>
                     <td>{{ $school->type }}</td>
                     <td>{{ $school->email_school }}</td>
-                    <td>
-                      <div class="buttons">
-                          <a href="{{ route('admin.schoolEdit', $school) }}"
-                              class="btn btn-sm btn-info">Editar</a>
-                      </div>
-                    </td>
+                    <td>{{ $school->sede }}</td>
+                    <form action="{{ route('admin.downloadEdit', $school) }}" method="POST">
+                      <td>
+                        @csrf
+                        <select name="download" style="width : 50px">
+                          <option value="{{ $school->download }}">{{ $school->download == 'Y' ? 'Si' : 'No' }}</option>
+                          <option>------------</option>
+                          <option value="N">No</option>
+                          <option value="Y">Si</option>
+                        </select>
+                      </td>
+                      <td>
+                        <div class="buttons">
+                          <select name="download_enter" style="width : 50px">
+                            <option value="{{ $school->download_enter }}">{{ $school->download_enter == 1 ? 'Si' : 'No'
+                              }}</option>
+                            <option>------------</option>
+                            <option value="1">Si</option>
+                            <option value="0">No</option>
+                          </select>
+                        </div>
+                      </td>
+                      <td>
+                        <select name="download_level" style="width : 50px">
+                          <option value="{{ $school->download_level }}">{{ $school->download_level }}</option>
+                          <option>------------</option>
+                          <option value="1">1</option>
+                          <option value="2">2</option>
+                          <option value="3">3</option>
+                        </select>
+                      </td>
+                      <td>
+                        <div class="buttons">
+                          <a href="{{ route('admin.schoolEdit', $school) }}" class="btn btn-sm btn-info">Editar</a>
+                          <button type="submit" class="btn btn-sm btn-warning">Guardar</button>
+                        </div>
+                      </td>
                   </tr>
+                  </form>
                   @endforeach
                 </tbody>
               </table>

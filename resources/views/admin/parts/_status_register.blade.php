@@ -10,8 +10,6 @@
                         <tr>
                             <th>Nombre</th>
                             <th>Estado</th>
-                            <th>Nota Teórico Max</th>
-                            <th>Nota Práctico Max</th>
                             <th>Acción</th>
                         </tr>
                     </thead>
@@ -22,8 +20,6 @@
                         <tr>
                             <td>{{ $status->name_button }}</td>
                             <td><input name="status_button" value="{{ $status->status_button }}"></td>
-                            <td><input name="first_note_max" value="{{ $status->first_note_max }}"></td>
-                            <td><input name="second_note_max" value="{{ $status->second_note_max }}"></td>
                             <td><button type="submit" class="btn btn-warning">Actualizar</button></td>
                         </tr>
                         </form>

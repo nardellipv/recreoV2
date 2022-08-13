@@ -1,20 +1,5 @@
 @extends('layouts.main')
 
-<script type="text/javascript">
-  function show1(){
-    document.getElementById('div1').style.display ='block';
-  }
-  function show2(){
-    document.getElementById('div1').style.display = 'none';
-  }
-</script>
-
-<style>
-  .hide {
-    display: none;
-  }
-</style>
-
 @section('content')
 <section class="section">
   <div class="section-body">
@@ -36,8 +21,8 @@
                 </div>
                 <div class="form-group col-md-6">
                   <label for="inputLastName">Apellido</label>
-                  <input type="text" class="form-control" id="inputLastName" name="lastname_teacher" placeholder="Apellido"
-                    value="{{ old('name',$teacher->lastname_teacher) }}" required>
+                  <input type="text" class="form-control" id="inputLastName" name="lastname_teacher"
+                    placeholder="Apellido" value="{{ old('name',$teacher->lastname_teacher) }}" required>
                 </div>
               </div>
 
@@ -61,7 +46,7 @@
                     value="{{ old('email_teacher',$teacher->email_teacher) }}" required>
                 </div>
                 <div class="form-group col-md-6">
-                  <label for="inputSpace">Espacio</label>
+                  <label for="inputSpace">Espacio Curricular</label>
                   <input type="text" class="form-control" id="inputSpace" name="space" placeholder="Espacio"
                     value="{{ old('space',$teacher->space) }}" required>
                 </div>
@@ -72,22 +57,22 @@
                   <label class="d-block">Nivel en el que participa</label>
                   <div class="form-check form-check-inline">
                     <label class="selectgroup-item">
-                      <input type="radio" name="level_teacher" value="1" class="selectgroup-input-radio" required
-                        {{ $teacher->level_teacher == '1' ? 'checked' : ''}}>
+                      <input type="radio" name="level_teacher" value="1" class="selectgroup-input-radio" required {{
+                        $teacher->level_teacher == '1' ? 'checked' : ''}}>
                       <span class="selectgroup-button">Nivel 1</span>
                     </label>
                   </div>
                   <div class="form-check form-check-inline">
                     <label class="selectgroup-item">
-                      <input type="radio" name="level_teacher" value="2" class="selectgroup-input-radio"
-                        {{ $teacher->level_teacher == '2' ? 'checked' : ''}}>
+                      <input type="radio" name="level_teacher" value="2" class="selectgroup-input-radio" {{
+                        $teacher->level_teacher == '2' ? 'checked' : ''}}>
                       <span class="selectgroup-button">Nivel 2</span>
                     </label>
                   </div>
                   <div class="form-check form-check-inline">
                     <label class="selectgroup-item">
-                      <input type="radio" name="level_teacher" value="3" class="selectgroup-input-radio"
-                        {{ $teacher->level_teacher == '3' ? 'checked' : ''}}>
+                      <input type="radio" name="level_teacher" value="3" class="selectgroup-input-radio" {{
+                        $teacher->level_teacher == '3' ? 'checked' : ''}}>
                       <span class="selectgroup-button">Ambos Niveles</span>
                     </label>
                   </div>
@@ -130,7 +115,7 @@
                   </div>
                 </div>
 
-                <div id="div1" class="form-group col-6 hide">
+                <div id="div1" class="form-group col-6 {{ $teacher->name_school_teacher == NULL ? 'hide' : '' }}">
                   <label for="inputName">Nombre del colegio</label>
                   <input type="text" class="form-control" id="inputName" name="name_school_teacher" placeholder="Nombre"
                     value="{{ old('name_school_teacher',$teacher->name_school_teacher) }}">
@@ -149,3 +134,19 @@
   </div>
 </section>
 @endsection
+
+
+<script type="text/javascript">
+  function show1(){
+    document.getElementById('div1').style.display ='block';
+  }
+  function show2(){
+    document.getElementById('div1').style.display = 'none';
+  }
+</script>
+
+<style>
+  .hide {
+    display: none;
+  }
+</style>

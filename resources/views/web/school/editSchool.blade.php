@@ -69,14 +69,14 @@
                     <label class="selectgroup-item">
                       <input type="radio" name="type" value="PRIVADA" class="selectgroup-input-radio"
                       {{ $school->type == 'PRIVADA' ? 'checked' : ''}} required>
-                      <span class="selectgroup-button">Nivel 1</span>
+                      <span class="selectgroup-button">Privada</span>
                     </label>
                   </div>
                   <div class="form-check form-check-inline">
                     <label class="selectgroup-item">
                       <input type="radio" name="type" value="PUBLICA" class="selectgroup-input-radio"
                       {{ $school->type == 'PUBLICA' ? 'checked' : ''}}>
-                      <span class="selectgroup-button">Nivel 2</span>
+                      <span class="selectgroup-button">Pública</span>
                     </label>
                   </div>
                 </div>
@@ -87,14 +87,14 @@
                     <label class="selectgroup-item">
                       <input type="radio" name="sede" value="SI" class="selectgroup-input-radio"
                       {{ $school->sede == 'SI' ? 'checked' : ''}} required>
-                      <span class="selectgroup-button">Primaria</span>
+                      <span class="selectgroup-button">Si</span>
                     </label>
                   </div>
                   <div class="form-check form-check-inline">
                     <label class="selectgroup-item">
                       <input type="radio" name="sede" value="NO" class="selectgroup-input-radio"
                       {{ $school->sede == 'NO' ? 'checked' : ''}}>
-                      <span class="selectgroup-button">Secundaria</span>
+                      <span class="selectgroup-button">No</span>
                     </label>
                   </div>
                 </div>

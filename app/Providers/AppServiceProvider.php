@@ -29,7 +29,9 @@ class AppServiceProvider extends ServiceProvider
             [
                 'auth.login',
                 'web.students.listStudent',
-                'web.students._agregarNotaModal'
+                'web.students._agregarNotaModal',
+                'web.parts._download',
+                'web.download.listDownload'
             ],
             function ($view) {
 
@@ -37,10 +39,21 @@ class AppServiceProvider extends ServiceProvider
                     ->first();
                 $registerNote = Buttons::where('id', 5)
                     ->first();
+                $registerNoteInter = Buttons::where('id', 8)
+                    ->first();
+
+                $downloadExam = Buttons::where('id', 9)
+                    ->first();
+
+                $downloadCorrection = Buttons::where('id', 10)
+                    ->first();
 
                 $view->with([
                     'registerSchool' => $registerSchool,
                     'registerNote' => $registerNote,
+                    'registerNoteInter' => $registerNoteInter,
+                    'downloadExam' => $downloadExam,
+                    'downloadCorrection' => $downloadCorrection,
                 ]);
             }
         );

@@ -24,6 +24,8 @@
                     <th>Nombre</th>
                     <th>Apellido</th>
                     <th>email</th>
+                    <th>Colegio</th>
+                    <th>Localidad</th>
                     <th>Espacio</th>
                     <th>Nivel</th>
                     <th>Teléfono</th>
@@ -36,6 +38,8 @@
                     <td>{{ $teacher->name_teacher }}</td>
                     <td>{{ $teacher->lastname_teacher }}</td>
                     <td>{{ $teacher->email_teacher }}</td>
+                    <td>{{ $teacher->user->name_school }}</td>
+                    <td>{{ $teacher->user->province->name }}</td>
                     <td>{{ $teacher->space }}</td>
                     <td>{{ $teacher->level_teacher }}</td>
                     <td>{{ $teacher->phone_teacher }}</td>

@@ -19,6 +19,9 @@ $factory->define(Student::class, function (Faker $faker) {
         'first_note' => $faker->numberBetween($min = 1, $max = 100),
         'second_note' => $faker->numberBetween($min = 1, $max = 100),
         'total_note' => $faker->numberBetween($min = 1, $max = 100),
+        'first_note_inter' => $faker->numberBetween($min = 1, $max = 100),
+        'second_note_inter' => $faker->numberBetween($min = 1, $max = 100),
+        'total_note_inter' => $faker->numberBetween($min = 1, $max = 100),
         'first_time_student' => $faker->randomElement(['SI', 'NO']),
         'user_id' => rand(1, 10),
     ];

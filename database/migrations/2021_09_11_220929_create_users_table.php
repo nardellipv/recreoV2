@@ -26,6 +26,10 @@ class CreateUsersTable extends Migration
             $table->string('director2');
             $table->enum('first_time_school', ['SI', 'NO']);
             $table->enum('sede', ['SI', 'NO'])->default('NO');
+            $table->enum('download', ['Y', 'N'])->default('N');
+            $table->enum('download_enter', ['0', '1'])->default('0');
+            $table->integer('download_level')->default('0');
+            $table->enum('download_correction', ['Y', 'N'])->default('N');
             $table->enum('userType', ['Colegio', 'Admin'])->default('Colegio');
 
             //relaciones

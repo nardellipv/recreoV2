@@ -22,7 +22,7 @@
                                         <th>Nombre</th>
                                         <th>Apellido</th>
                                         <th>DNI</th>
-                                        <th>Espacio</th>
+                                        <th>Espacio Curricular</th>
                                         <th>Nivel</th>
                                         <th>Teléfono</th>
                                         <th>email</th>

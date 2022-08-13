@@ -23,11 +23,11 @@
                                     <tr>
                                         <th>Nombre</th>
                                         <th>Apellido</th>
-                                        <th>DNI</th>
                                         <th>Nivel</th>
-                                        <th>Nota Total</th>
-                                        <th>email</th>
+                                        <th>Total Colegial</th>
+                                        <th>Total Intercolegial</th>
                                         <th>Acción</th>
+                                        <th>Subir Notas</th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -35,32 +35,45 @@
                                     <tr>
                                         <td>{{ $student->name_student }}</td>
                                         <td>{{ $student->lastname_student }}</td>
-                                        <td>{{ $student->dni_student }}</td>
                                         <td>{{ $student->level_student }}</td>
                                         <td>
                                             {!! $student->total_note == '' ? '<div class="badge badge-danger">Sin Nota
                                             </div>' : $student->total_note !!}
                                             @if($student->level_student == 2)
-                                            @if(!$student->second_note AND $student->first_note)
-                                            <div class="badge badge-warning">Falta Práctica</div>
-                                            @endif
+                                                @if(!$student->second_note AND $student->first_note)
+                                                  <div class="badge badge-warning">Falta Práctica</div>
+                                                @endif
                                             @endif
                                         </td>
-                                        <td>{{ $student->email_student }}</td>
+                                        <td>
+                                            {!! $student->total_note_inter == '' ? '<div class="badge badge-danger">Sin Nota
+                                            </div>' : $student->total_note_inter !!}
+                                            @if($student->level_student == 2)
+                                                @if(!$student->second_note_inter AND $student->first_note_inter)
+                                                  <div class="badge badge-warning">Falta Práctica</div>
+                                                @endif
+                                            @endif
+                                        </td>
                                         <td>
                                             <div class="btn-group mb-3" role="group" aria-label="Basic example">
                                                 <a href="{{ route('student.edit', $student) }}" type="button"
-                                                    class="btn btn-success">Editar</a>
-                                                @if($registerNote->status_button == '1')
-                                                <button type="button" class="btn btn-warning" data-toggle="modal"
-                                                    data-target="#modalAddNoteStudent{{ $student->id }}">Subir
-                                                    Nota</button>
-                                                @else
-                                                <button type="button" class="btn btn-warning" disabled>Subir
-                                                    Nota</button>
-                                                @endif
+                                                    class="btn btn-sm btn-success">Editar</a>
                                                 <a href="{{ route('student.delete', $student) }}" type="button"
-                                                    class="btn btn-danger">Eliminar</a>
+                                                    class="btn btn-sm btn-danger">Eliminar</a>
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div class="btn-group mb-3" role="group" aria-label="Basic example">
+                                                @if($registerNote->status_button == '1')
+                                                <button type="button" class="btn btn-sm btn-warning" data-toggle="modal"
+                                                    data-target="#modalAddNoteStudent{{ $student->id }}">
+                                                    Colegial</button>
+                                                @endif
+                                                @if($registerNoteInter->status_button == '1')
+                                                <button type="button" class="btn btn-sm btn-warning" data-toggle="modal"
+                                                    data-target="#modalAddNoteInterStudent{{ $student->id }}">
+                                                    Inter-colegial</button>
+                                                @endif
                                             </div>
                                         </td>
                                     </tr>
@@ -76,6 +89,7 @@
 </section>
 @foreach($students as $student)
 @include('web.students._agregarNotaModal')
+@include('web.students._agregarNotaInterModal')
 @endforeach
 @endsection
 

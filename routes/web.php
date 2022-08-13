@@ -33,6 +33,9 @@ Route::middleware(['auth'])->group(function () {
     Route::post('/alumno/update/{id}', 'StudentController@updateStudent')->name('student.update');
     Route::get('/alumno/eliminar/{id}', 'StudentController@deleteStudent')->name('student.delete');
     Route::post('/alumno/agregar-nota/{id}', 'StudentController@addNoteStudent')->name('student.addNote');
+    Route::post('/alumno/agregar-nota-inter/{id}', 'StudentController@addNoteInterStudent')->name('student.addInterNote');
+
+    Route::get('/examen/descarga/{id}', 'SchoolController@testDownload')->name('school.testDownload');
 });
 
 Route::middleware(['auth', 'AdminMiddleware'])->group(function () {
@@ -60,4 +63,5 @@ Route::middleware(['auth', 'AdminMiddleware'])->group(function () {
     Route::get('/admin/escuela/listado', 'Admin\SchoolAdminController@adminListSchool')->name('admin.school');
     Route::get('/admin/escuela/editar/{id}', 'Admin\SchoolAdminController@adminEditSchool')->name('admin.schoolEdit');
     Route::post('/admin/escuela/update/{id}', 'Admin\SchoolAdminController@adminUpdateSchool')->name('admin.schoolUpdate');
+    Route::post('/admin/escuela/download-edit/{id}', 'Admin\SchoolAdminController@adminEditDownload')->name('admin.downloadEdit');
 });

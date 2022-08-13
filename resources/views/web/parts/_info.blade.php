@@ -52,56 +52,17 @@
                 <div class="row">
                     <div class="form-group col-3">
                         <label class="d-block">Tipo de Gestión</label>
-                        <div class="form-check form-check-inline">
-                            <label class="selectgroup-item">
-                                <input type="radio" name="type" class="selectgroup-input-radio"
-                                    {{ $school->type == 'PRIVADA' ? 'checked' : ''}} disabled>
-                                <span class="selectgroup-button">Nivel 1</span>
-                            </label>
-                        </div>
-                        <div class="form-check form-check-inline">
-                            <label class="selectgroup-item">
-                                <input type="radio" name="type" class="selectgroup-input-radio"
-                                    {{ $school->type == 'PUBLICA' ? 'checked' : ''}} disabled>
-                                <span class="selectgroup-button">Nivel 2</span>
-                            </label>
-                        </div>
+                        <p>{{ $school->type }}</p>
                     </div>
 
                     <div class="form-group col-3">
                         <label class="d-block">¿Se postula como Sede?</label>
-                        <div class="form-check form-check-inline">
-                            <label class="selectgroup-item">
-                                <input type="radio" name="sede" disabled class="selectgroup-input-radio"
-                                    {{ $school->sede == 'SI' ? 'checked' : ''}} readonly>
-                                <span class="selectgroup-button">Primaria</span>
-                            </label>
-                        </div>
-                        <div class="form-check form-check-inline">
-                            <label class="selectgroup-item">
-                                <input type="radio" name="sede" disabled class="selectgroup-input-radio"
-                                    {{ $school->sede == 'NO' ? 'checked' : ''}}>
-                                <span class="selectgroup-button">Secundaria</span>
-                            </label>
-                        </div>
+                        <p>{{ $school->sede }}</p>
                     </div>
 
                     <div class="form-group col-6">
-                        <label class="d-block">Participación con anterioridad</label>
-                        <div class="form-check form-check-inline">
-                            <label class="selectgroup-item">
-                                <input type="radio" name="first_time_school" disabled class="selectgroup-input-radio"
-                                    {{ $school->first_time_school == 'SI' ? 'checked' : ''}} readonly>
-                                <span class="selectgroup-button">Participo por primera vez</span>
-                            </label>
-                        </div>
-                        <div class="form-check form-check-inline">
-                            <label class="selectgroup-item">
-                                <input type="radio" name="first_time_school" disabled class="selectgroup-input-radio"
-                                    {{ $school->first_time_school == 'NO' ? 'checked' : ''}}>
-                                <span class="selectgroup-button">He participado anteriormente</span>
-                            </label>
-                        </div>
+                        <label class="d-block">¿Participa por primera vez?</label>
+                        {{ $school->first_time_school }}
                     </div>
                 </div>
             </div>

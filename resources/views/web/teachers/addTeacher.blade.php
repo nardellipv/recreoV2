@@ -61,7 +61,7 @@
                     value="{{ old('email_teacher') }}" required>
                 </div>
                 <div class="form-group col-md-6">
-                  <label for="inputSpace">Espacio</label>
+                  <label for="inputSpace">Espacio Curricular</label>
                   <input type="text" class="form-control" id="inputSpace" name="space" placeholder="Espacio"
                     value="{{ old('space') }}" required>
                 </div>

@@ -49,99 +49,124 @@ class StudentAdminController extends Controller
     {
         // Nivel 1
         $studentCABA = Student::join('users', 'students.user_id', 'users.id')
+            ->join('regions', 'regions.id', 'users.region_id')
             ->where('users.province_id', 2)
             ->where('level_student', 1)
             ->get();
 
         $studentBA = Student::join('users', 'students.user_id', 'users.id')
+            ->join('regions', 'regions.id', 'users.region_id')
             ->where('users.province_id', 6)
             ->where('level_student', 1)
             ->get();
+
         $studentCatamarca = Student::join('users', 'students.user_id', 'users.id')
+            ->join('regions', 'regions.id', 'users.region_id')
             ->where('users.province_id', 10)
             ->where('level_student', 1)
             ->get();
         $studentCba = Student::join('users', 'students.user_id', 'users.id')
+            ->join('regions', 'regions.id', 'users.region_id')
             ->where('users.province_id', 14)
             ->where('level_student', 1)
             ->get();
         $studentCorriente = Student::join('users', 'students.user_id', 'users.id')
+            ->join('regions', 'regions.id', 'users.region_id')
             ->where('users.province_id', 18)
             ->where('level_student', 1)
             ->get();
         $studentChaco = Student::join('users', 'students.user_id', 'users.id')
+            ->join('regions', 'regions.id', 'users.region_id')
             ->where('users.province_id', 22)
             ->where('level_student', 1)
             ->get();
         $studentChubut = Student::join('users', 'students.user_id', 'users.id')
+            ->join('regions', 'regions.id', 'users.region_id')
             ->where('users.province_id', 26)
             ->where('level_student', 1)
             ->get();
         $studentERios = Student::join('users', 'students.user_id', 'users.id')
+            ->join('regions', 'regions.id', 'users.region_id')
             ->where('users.province_id', 30)
             ->where('level_student', 1)
             ->get();
         $studentFormosa = Student::join('users', 'students.user_id', 'users.id')
+            ->join('regions', 'regions.id', 'users.region_id')
             ->where('users.province_id', 34)
             ->where('level_student', 1)
             ->get();
         $studentJujuy = Student::join('users', 'students.user_id', 'users.id')
+            ->join('regions', 'regions.id', 'users.region_id')
             ->where('users.province_id', 38)
             ->where('level_student', 1)
             ->get();
         $studentLaPampa = Student::join('users', 'students.user_id', 'users.id')
+            ->join('regions', 'regions.id', 'users.region_id')
             ->where('users.province_id', 42)
             ->where('level_student', 1)
             ->get();
         $studentLaRioja = Student::join('users', 'students.user_id', 'users.id')
+            ->join('regions', 'regions.id', 'users.region_id')
             ->where('users.province_id', 46)
             ->where('level_student', 1)
             ->get();
         $studentMza = Student::join('users', 'students.user_id', 'users.id')
+            ->join('regions', 'regions.id', 'users.region_id')
             ->where('users.province_id', 50)
             ->where('level_student', 1)
             ->get();
         $studentMisiones = Student::join('users', 'students.user_id', 'users.id')
+            ->join('regions', 'regions.id', 'users.region_id')
             ->where('users.province_id', 54)
             ->where('level_student', 1)
             ->get();
         $studentNqn = Student::join('users', 'students.user_id', 'users.id')
+            ->join('regions', 'regions.id', 'users.region_id')
             ->where('users.province_id', 58)
             ->where('level_student', 1)
             ->get();
         $studentRNegro = Student::join('users', 'students.user_id', 'users.id')
+            ->join('regions', 'regions.id', 'users.region_id')
             ->where('users.province_id', 62)
             ->where('level_student', 1)
             ->get();
         $studentSalta = Student::join('users', 'students.user_id', 'users.id')
+            ->join('regions', 'regions.id', 'users.region_id')
             ->where('users.province_id', 66)
             ->where('level_student', 1)
             ->get();
         $studentSJuan = Student::join('users', 'students.user_id', 'users.id')
+            ->join('regions', 'regions.id', 'users.region_id')
             ->where('users.province_id', 70)
             ->where('level_student', 1)
             ->get();
         $studentSLuis = Student::join('users', 'students.user_id', 'users.id')
+            ->join('regions', 'regions.id', 'users.region_id')
             ->where('users.province_id', 74)
             ->where('level_student', 1)
             ->get();
         $studentSCruz = Student::join('users', 'students.user_id', 'users.id')
+            ->join('regions', 'regions.id', 'users.region_id')
             ->where('users.province_id', 78)
             ->where('level_student', 1)
             ->get();
         $studentStaFe = Student::join('users', 'students.user_id', 'users.id')
+            ->join('regions', 'regions.id', 'users.region_id')
             ->where('users.province_id', 82)
             ->where('level_student', 1)
             ->get();
         $studentSDEstero = Student::join('users', 'students.user_id', 'users.id')
+            ->join('regions', 'regions.id', 'users.region_id')
             ->where('users.province_id', 86)
             ->where('level_student', 1)
             ->get();
         $studentTucuman = Student::join('users', 'students.user_id', 'users.id')
+            ->join('regions', 'regions.id', 'users.region_id')
             ->where('users.province_id', 90)
             ->where('level_student', 1)
             ->get();
         $studentTFuego = Student::join('users', 'students.user_id', 'users.id')
+            ->join('regions', 'regions.id', 'users.region_id')
             ->where('users.province_id', 94)
             ->where('level_student', 1)
             ->get();
@@ -185,12 +210,16 @@ class StudentAdminController extends Controller
                 'email' => lcfirst($user->email_student),
                 'Grado' => ucfirst($user->classroom),
                 'Nivel' => ucfirst($user->level_student),
-                'Primera Nota' => ucfirst($user->first_note),
-                'Segunda Nota' => ucfirst($user->second_note),
-                'Nota Total' => ucfirst($user->total_note),
+                'Primera Nota Colegial' => ucfirst($user->first_note),
+                'Segunda Nota Colegial' => ucfirst($user->second_note),
+                'Nota Total Colegial' => ucfirst($user->total_note),
+                'Primera Nota Provincial' => ucfirst($user->first_note_inter),
+                'Segunda Nota Provincial' => ucfirst($user->second_note_inter),
+                'Total Provincial' => ucfirst($user->first_note_inter + $user->second_note_inter),
                 '¿Primera Vez?' => ucfirst($user->first_time_student),
                 'Nombre Escuela' => ucfirst($user->name_school),
                 'Dirección Escuela' => ucfirst($user->address),
+                'Localidad' => ucfirst($user->region->name),
             ];
         });
     }
@@ -199,98 +228,122 @@ class StudentAdminController extends Controller
     {
         // Nivel 2
         $studentCABA = Student::join('users', 'students.user_id', 'users.id')
+            ->join('regions', 'regions.id', 'users.region_id')
             ->where('users.province_id', 2)
             ->where('level_student', 2)
             ->get();
         $studentBA = Student::join('users', 'students.user_id', 'users.id')
+            ->join('regions', 'regions.id', 'users.region_id')
             ->where('users.province_id', 6)
             ->where('level_student', 2)
             ->get();
         $studentCatamarca = Student::join('users', 'students.user_id', 'users.id')
+            ->join('regions', 'regions.id', 'users.region_id')
             ->where('users.province_id', 10)
             ->where('level_student', 2)
             ->get();
         $studentCba = Student::join('users', 'students.user_id', 'users.id')
+            ->join('regions', 'regions.id', 'users.region_id')
             ->where('users.province_id', 14)
             ->where('level_student', 2)
             ->get();
         $studentCorriente = Student::join('users', 'students.user_id', 'users.id')
+            ->join('regions', 'regions.id', 'users.region_id')
             ->where('users.province_id', 18)
             ->where('level_student', 2)
             ->get();
         $studentChaco = Student::join('users', 'students.user_id', 'users.id')
+            ->join('regions', 'regions.id', 'users.region_id')
             ->where('users.province_id', 22)
             ->where('level_student', 2)
             ->get();
         $studentChubut = Student::join('users', 'students.user_id', 'users.id')
+            ->join('regions', 'regions.id', 'users.region_id')
             ->where('users.province_id', 26)
             ->where('level_student', 2)
             ->get();
         $studentERios = Student::join('users', 'students.user_id', 'users.id')
+            ->join('regions', 'regions.id', 'users.region_id')
             ->where('users.province_id', 30)
             ->where('level_student', 2)
             ->get();
         $studentFormosa = Student::join('users', 'students.user_id', 'users.id')
+            ->join('regions', 'regions.id', 'users.region_id')
             ->where('users.province_id', 34)
             ->where('level_student', 2)
             ->get();
         $studentJujuy = Student::join('users', 'students.user_id', 'users.id')
+            ->join('regions', 'regions.id', 'users.region_id')
             ->where('users.province_id', 38)
             ->where('level_student', 2)
             ->get();
         $studentLaPampa = Student::join('users', 'students.user_id', 'users.id')
+            ->join('regions', 'regions.id', 'users.region_id')
             ->where('users.province_id', 42)
             ->where('level_student', 2)
             ->get();
         $studentLaRioja = Student::join('users', 'students.user_id', 'users.id')
+            ->join('regions', 'regions.id', 'users.region_id')
             ->where('users.province_id', 46)
             ->where('level_student', 2)
             ->get();
         $studentMza = Student::join('users', 'students.user_id', 'users.id')
+            ->join('regions', 'regions.id', 'users.region_id')
             ->where('users.province_id', 50)
             ->where('level_student', 2)
             ->get();
         $studentMisiones = Student::join('users', 'students.user_id', 'users.id')
+            ->join('regions', 'regions.id', 'users.region_id')
             ->where('users.province_id', 54)
             ->where('level_student', 2)
             ->get();
         $studentNqn = Student::join('users', 'students.user_id', 'users.id')
+            ->join('regions', 'regions.id', 'users.region_id')
             ->where('users.province_id', 58)
             ->where('level_student', 2)
             ->get();
         $studentRNegro = Student::join('users', 'students.user_id', 'users.id')
+            ->join('regions', 'regions.id', 'users.region_id')
             ->where('users.province_id', 62)
             ->where('level_student', 2)
             ->get();
         $studentSalta = Student::join('users', 'students.user_id', 'users.id')
+            ->join('regions', 'regions.id', 'users.region_id')
             ->where('users.province_id', 66)
             ->where('level_student', 2)
             ->get();
         $studentSJuan = Student::join('users', 'students.user_id', 'users.id')
+            ->join('regions', 'regions.id', 'users.region_id')
             ->where('users.province_id', 70)
             ->where('level_student', 2)
             ->get();
         $studentSLuis = Student::join('users', 'students.user_id', 'users.id')
+            ->join('regions', 'regions.id', 'users.region_id')
             ->where('users.province_id', 74)
             ->where('level_student', 2)
             ->get();
         $studentSCruz = Student::join('users', 'students.user_id', 'users.id')
+            ->join('regions', 'regions.id', 'users.region_id')
             ->where('users.province_id', 78)
             ->where('level_student', 2)
             ->get();
         $studentStaFe = Student::join('users', 'students.user_id', 'users.id')
+            ->join('regions', 'regions.id', 'users.region_id')
             ->where('users.province_id', 82)
             ->where('level_student', 2)
             ->get();
         $studentSDEstero = Student::join('users', 'students.user_id', 'users.id')
+            ->join('regions', 'regions.id', 'users.region_id')
             ->where('users.province_id', 86)
             ->where('level_student', 2)
             ->get();
         $studentTucuman = Student::join('users', 'students.user_id', 'users.id')
+            ->join('regions', 'regions.id', 'users.region_id')
             ->where('users.province_id', 90)
             ->where('level_student', 2)
             ->get();
         $studentTFuego = Student::join('users', 'students.user_id', 'users.id')
+            ->join('regions', 'regions.id', 'users.region_id')
             ->where('users.province_id', 94)
             ->where('level_student', 2)
             ->get();
@@ -337,9 +390,13 @@ class StudentAdminController extends Controller
                 'Primera Nota' => ucfirst($user->first_note),
                 'Segunda Nota' => ucfirst($user->second_note),
                 'Nota Total' => ucfirst($user->total_note),
+                'Primera Nota Provincial' => ucfirst($user->first_note_inter),
+                'Segunda Nota Provincial' => ucfirst($user->second_note_inter),
+                'Total Provincial' => ucfirst($user->first_note_inter + $user->second_note_inter),
                 '¿Primera Vez?' => ucfirst($user->first_time_student),
                 'Nombre Escuela' => ucfirst($user->name_school),
                 'Dirección Escuela' => ucfirst($user->address),
+                'Localidad' => ucfirst($user->region->name),
             ];
         });
     }

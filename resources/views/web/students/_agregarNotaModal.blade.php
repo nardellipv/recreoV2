@@ -31,7 +31,7 @@
                         <label for="inputEmail3" class="col-sm-6 col-form-label">Prueba Teórico-Experimental <small>(de
                                 0 a 100 puntos)</small></label>
                         <div class="col-sm-6">
-                            <input type="number" name="first_note" class="form-control" id="inputEmail3" max="100"
+                            <input type="text" name="first_note" class="form-control" id="inputEmail3" max="100"
                                 placeholder="Teórico-Experimental"
                                 value="{{ $student->first_note != 'NULL' ? $student->first_note : '' }}">
                         </div>
@@ -43,7 +43,7 @@
                         <label for="inputEmail3" class="col-sm-6 col-form-label">Prueba Teórico-Práctica <small>(de
                                 0 a 60 puntos)</small></label>
                         <div class="col-sm-6">
-                            <input type="number" name="first_note" class="form-control" id="inputEmail3" max="60"
+                            <input type="text" name="first_note" class="form-control" id="inputEmail3" max="60"
                                 placeholder="Teórico-Práctica"
                                 value="{{ $student->first_note != 'NULL' ? $student->first_note : '' }}">
                         </div>
@@ -52,7 +52,7 @@
                         <label for="inputEmail3" class="col-sm-6 col-form-label">Prueba Experimental <small>(de 0 a 40
                                 puntos)</small></label>
                         <div class="col-sm-6">
-                            <input type="number" name="second_note" class="form-control" id="inputEmail3" max="40"
+                            <input type="text" name="second_note" class="form-control" id="inputEmail3" max="40"
                                 placeholder="Experimental"
                                 value="{{ $student->second_note != 'NULL' ? $student->second_note : '' }}">
                         </div>

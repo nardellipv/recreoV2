@@ -56,9 +56,11 @@ class RegisterController extends Controller
 
             $provinceName = Province::where('id', $provinceId)
                 ->first();
+
+                return view('auth.register', compact('provinces', 'provinceName','regions'));
         }
 
-        return view('auth.register', compact('provinces', 'regions', 'provinceName'));
+        return view('auth.register', compact('provinces'));
     }
 
 
@@ -90,6 +92,7 @@ class RegisterController extends Controller
      */
     protected function create(array $data)
     {
+
         return User::create([
             'name_school' => $data['name_school'],
             'email_school' => $data['email_school'],

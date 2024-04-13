@@ -48,12 +48,16 @@ class AppServiceProvider extends ServiceProvider
                 $downloadCorrection = Buttons::where('id', 10)
                     ->first();
 
+                $downloadCorrection2 = Buttons::where('id', 11)
+                    ->first();
+
                 $view->with([
                     'registerSchool' => $registerSchool,
                     'registerNote' => $registerNote,
                     'registerNoteInter' => $registerNoteInter,
                     'downloadExam' => $downloadExam,
                     'downloadCorrection' => $downloadCorrection,
+                    'downloadCorrection2' => $downloadCorrection2,
                 ]);
             }
         );

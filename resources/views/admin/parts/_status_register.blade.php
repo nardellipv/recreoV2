@@ -24,6 +24,11 @@
                         </tr>
                         </form>
                         @endforeach
+                        <tr>
+                            <td>Reset Ingreso</td>
+                            <td></td>
+                            <td><a href="{{ route('admin.resetDownload', ['reset'=>'1']) }}" type="submit" class="btn btn-warning">Actualizar</a></td>
+                        </tr>
                     </tbody>
                 </table>
             </div>

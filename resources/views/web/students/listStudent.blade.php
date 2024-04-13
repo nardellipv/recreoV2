@@ -25,7 +25,7 @@
                                         <th>Apellido</th>
                                         <th>Nivel</th>
                                         <th>Total Colegial</th>
-                                        <th>Total Intercolegial</th>
+                                        <th>Total Provincial</th>
                                         <th>Acción</th>
                                         <th>Subir Notas</th>
                                     </tr>
@@ -72,7 +72,7 @@
                                                 @if($registerNoteInter->status_button == '1')
                                                 <button type="button" class="btn btn-sm btn-warning" data-toggle="modal"
                                                     data-target="#modalAddNoteInterStudent{{ $student->id }}">
-                                                    Inter-colegial</button>
+                                                    Provincial</button>
                                                 @endif
                                             </div>
                                         </td>

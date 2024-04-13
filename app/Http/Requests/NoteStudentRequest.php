@@ -32,8 +32,8 @@ class NoteStudentRequest extends FormRequest
     {
         return [
             'first_note.required' => 'La nota teórica es requerida',
-            'first_note.numeric' => 'La nota teórica debe ser numérica',
-            'second_note.numeric' => 'La nota práctica debe ser numérica',
+            'first_note.numeric' => 'La nota teórica debe ser numérica. En caso de tener decimales, separar con punto.',
+            'second_note.numeric' => 'La nota práctica debe ser numérica. En caso de tener decimales, separar con punto.',
         ];
     }
 }

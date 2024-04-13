@@ -15,5 +15,10 @@ class Student extends Model
     {
         return $this->belongsTo(User::class);
     }
+
+    public function Region()
+    {
+        return $this->belongsTo(Region::class);
+    }
     
 }

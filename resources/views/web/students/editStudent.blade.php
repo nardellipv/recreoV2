@@ -41,7 +41,6 @@
 
               <div class="form-row">
                 <div class="form-group col-md-6">
-                  <label for="inputPhone">Teléfono</label>
                   <label>Fecha Nacimiento</label>
                   <input type="date" name="birth_date" class="form-control" value="{{ old('birth_date', $student->birth_date) }}" required>
                 </div>

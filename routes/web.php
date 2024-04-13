@@ -12,6 +12,11 @@ Route::get('/clear', function () {
 
 Auth::routes();
 
+Route::view('/restart', 'auth.restart')->name('restart');
+Route::post('/restart-password', 'HomeController@restartPassword')->name('restartPassword');
+Route::get('/change-password', 'HomeController@changePassword')->name('changePassword');
+Route::post('/new-password/{id}', 'HomeController@newPassword')->name('newPassword');
+
 //Admin Colegio
 Route::middleware(['auth'])->group(function () {
     Route::get('/dashboard', 'HomeController@index')->name('dashboard');
@@ -36,12 +41,14 @@ Route::middleware(['auth'])->group(function () {
     Route::post('/alumno/agregar-nota-inter/{id}', 'StudentController@addNoteInterStudent')->name('student.addInterNote');
 
     Route::get('/examen/descarga/{id}', 'SchoolController@testDownload')->name('school.testDownload');
+
 });
 
 Route::middleware(['auth', 'AdminMiddleware'])->group(function () {
     Route::get('/admin/dashboard', 'Admin\HomeAdminController@index')->name('admin.dashboard');
 
     Route::post('/admin/estados/editar/{id}', 'Admin\HomeAdminController@editStatus')->name('admin.editStatus');
+    Route::get('/examen/reset-download', 'Admin\HomeAdminController@resetDownload')->name('admin.resetDownload');
 
     Route::get('users/export/nivel1', 'Admin\StudentAdminController@exportStudentLevel1')->name('admin.exportStudentLevel1');
     Route::get('users/export/nivel2', 'Admin\StudentAdminController@exportStudentLevel2')->name('admin.exportStudentLevel2');
@@ -49,7 +56,7 @@ Route::middleware(['auth', 'AdminMiddleware'])->group(function () {
     Route::get('users/export/colegio', 'Admin\SchoolAdminController@exportSchoolLevelStudent')->name('admin.exportSchoolLevelStudent');
 
     Route::get('users/export/profesores', 'Admin\TeacherAdminController@exportTeacherSchoolLevel')->name('admin.exportTeacherSchoolLevel');
-    
+
     Route::get('users/export/profesores_alumnos', 'Admin\TeacherAdminController@exportTeacherStudent')->name('admin.exportTeacherStudent');
 
     Route::get('/admin/profesor/listado', 'Admin\TeacherAdminController@adminListTeacher')->name('admin.teacher');

@@ -2,11 +2,13 @@
 
 namespace App\Http\Controllers;
 
+use App\Buttons;
 use App\Http\Requests\NoteInterStudentRequest;
 use App\Http\Requests\NoteStudentRequest;
 use App\Http\Requests\StudentRequest;
 use App\Http\Requests\UpdateStudentRequest;
 use App\Student;
+use Carbon\Carbon;
 
 class StudentController extends Controller
 {
@@ -20,22 +22,70 @@ class StudentController extends Controller
 
     public function storeStudent(StudentRequest $request)
     {
-        Student::create([
-            'name_student' => $request['name_student'],
-            'lastname_student' => $request['lastname_student'],
-            'phone_student' => $request['phone_student'],
-            'dni_student' => $request['dni_student'],
-            'birth_date' => $request['birth_date'],
-            'email_student' => $request['email_student'],
-            'level_student' => $request['level_student'],
-            'classroom' => $request['classroom'],
-            'first_time_student' => $request['first_time_student'],
-            'genre' => $request['genre'],
-            'user_id' => current_user()->id,
-        ]);
 
-        toast('Alumno agregado correctamente!', 'success');
-        return back();
+        $studentBirthdate = Carbon::parse($request['birth_date'])->format('Y-m-d');
+
+        if ($request['level_student'] == 1) {
+            $studenLevel = Buttons::where('id', 12)
+                ->whereDate('fecha_inicio', '<=', $studentBirthdate)
+                ->whereDate('fecha_fin', '>=', $studentBirthdate)
+                ->first();
+
+            if ($studenLevel != NULL) {
+                $birthDateStudent = $request['birth_date'];
+
+                Student::create([
+                    'name_student' => $request['name_student'],
+                    'lastname_student' => $request['lastname_student'],
+                    'phone_student' => $request['phone_student'],
+                    'dni_student' => $request['dni_student'],
+                    'birth_date' => $birthDateStudent,
+                    'email_student' => $request['email_student'],
+                    'level_student' => $request['level_student'],
+                    'classroom' => $request['classroom'],
+                    'first_time_student' => $request['first_time_student'],
+                    'genre' => $request['genre'],
+                    'user_id' => current_user()->id,
+                ]);
+
+                toast('Alumno agregado correctamente!', 'success');
+                return back();
+            } else {
+                toast('Corrobore la fecha de cumpleaños y/o el nivel sean correctos', 'error');
+                return redirect()->back()->withInput();
+            }
+        }
+
+        if ($request['level_student'] == 2) {
+            $studenLevel = Buttons::where('id', 13)
+                ->whereDate('fecha_inicio', '<=', $studentBirthdate)
+                ->whereDate('fecha_fin', '>=', $studentBirthdate)
+                ->first();
+
+            if ($studenLevel != NULL) {
+                $birthDateStudent = $request['birth_date'];
+
+                Student::create([
+                    'name_student' => $request['name_student'],
+                    'lastname_student' => $request['lastname_student'],
+                    'phone_student' => $request['phone_student'],
+                    'dni_student' => $request['dni_student'],
+                    'birth_date' => $birthDateStudent,
+                    'email_student' => $request['email_student'],
+                    'level_student' => $request['level_student'],
+                    'classroom' => $request['classroom'],
+                    'first_time_student' => $request['first_time_student'],
+                    'genre' => $request['genre'],
+                    'user_id' => current_user()->id,
+                ]);
+
+                toast('Alumno agregado correctamente!', 'success');
+                return back();
+            } else {
+                toast('Corrobore la fecha de cumpleaños y/o el nivel sean correctos', 'error');
+                return redirect()->back()->withInput();
+            }
+        }
     }
 
     public function editStudent($id)
@@ -51,20 +101,66 @@ class StudentController extends Controller
 
         $this->authorize('updateStudent', $student);
 
-        $student->name_student = $request['name_student'];
-        $student->lastname_student = $request['lastname_student'];
-        $student->dni_student = $request['dni_student'];
-        $student->phone_student = $request['phone_student'];
-        $student->birth_date = $request['birth_date'];
-        $student->email_student = $request['email_student'];
-        $student->level_student = $request['level_student'];
-        $student->classroom = $request['classroom'];
-        $student->first_time_student = $request['first_time_student'];
-        $student->genre = $request['genre'];
-        $student->save();
 
-        toast('Estudiante modificado correctamente!', 'success');
-        return back();
+        $studentBirthdate = Carbon::parse($request['birth_date'])->format('Y-m-d');
+
+        if ($request['level_student'] == 1) {
+            $studenLevel = Buttons::where('id', 12)
+                ->whereDate('fecha_inicio', '<=', $studentBirthdate)
+                ->whereDate('fecha_fin', '>=', $studentBirthdate)
+                ->first();
+
+            if ($studenLevel != NULL) {
+                $birthDateStudent = $request['birth_date'];
+
+                $student->name_student = $request['name_student'];
+                $student->lastname_student = $request['lastname_student'];
+                $student->dni_student = $request['dni_student'];
+                $student->phone_student = $request['phone_student'];
+                $student->birth_date = $birthDateStudent;
+                $student->email_student = $request['email_student'];
+                $student->level_student = $request['level_student'];
+                $student->classroom = $request['classroom'];
+                $student->first_time_student = $request['first_time_student'];
+                $student->genre = $request['genre'];
+                $student->save();
+
+                toast('Estudiante modificado correctamente!', 'success');
+                return redirect()->action('StudentController@listStudent');
+            } else {
+                toast('Corrobore la fecha de cumpleaños y/o el nivel sean correctos', 'error');
+                return redirect()->back()->withInput();
+            }
+        }
+
+        if ($request['level_student'] == 2) {
+            $studenLevel = Buttons::where('id', 13)
+                ->whereDate('fecha_inicio', '<=', $studentBirthdate)
+                ->whereDate('fecha_fin', '>=', $studentBirthdate)
+                ->first();
+
+            if ($studenLevel != NULL) {
+                $birthDateStudent = $request['birth_date'];
+
+                $student->name_student = $request['name_student'];
+                $student->lastname_student = $request['lastname_student'];
+                $student->dni_student = $request['dni_student'];
+                $student->phone_student = $request['phone_student'];
+                $student->birth_date = $birthDateStudent;
+                $student->email_student = $request['email_student'];
+                $student->level_student = $request['level_student'];
+                $student->classroom = $request['classroom'];
+                $student->first_time_student = $request['first_time_student'];
+                $student->genre = $request['genre'];
+                $student->save();
+
+                toast('Estudiante modificado correctamente!', 'success');
+                return redirect()->action('StudentController@listStudent');
+            } else {
+                toast('Corrobore la fecha de cumpleaños y/o el nivel sean correctos', 'error');
+                return redirect()->back()->withInput();
+            }
+        }
     }
 
     public function addNoteStudent(NoteStudentRequest $request, $id)

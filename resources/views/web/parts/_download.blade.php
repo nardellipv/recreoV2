@@ -17,7 +17,7 @@
                 <br>
                 <br>
                 <h5>Usted ya ingreso anteriormente y no puede volver a ingresar.</h5>
-                @endif                
+                @endif
             </div>
         </div>
     </div>

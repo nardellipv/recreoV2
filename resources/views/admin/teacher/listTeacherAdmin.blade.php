@@ -23,6 +23,7 @@
                   <tr>
                     <th>Nombre</th>
                     <th>Apellido</th>
+                    <th>DNI</th>
                     <th>email</th>
                     <th>Colegio</th>
                     <th>Localidad</th>
@@ -37,6 +38,7 @@
                   <tr>
                     <td>{{ $teacher->name_teacher }}</td>
                     <td>{{ $teacher->lastname_teacher }}</td>
+                    <td>{{ $teacher->dni_teacher }}</td>
                     <td>{{ $teacher->email_teacher }}</td>
                     <td>{{ $teacher->user->name_school }}</td>
                     <td>{{ $teacher->user->province->name }}</td>

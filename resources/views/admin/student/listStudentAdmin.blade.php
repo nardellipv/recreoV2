@@ -25,6 +25,12 @@
                             <th>Teléfono</th>
                             <th>Año Cursado</th>
                             <th>Nivel</th>
+                            <th>1er Nota Colegial</th>
+                            <th>2da Nota Colegial</th>
+                            <th>Total Colegial</th>
+                            <th>1er Nota Provincial</th>
+                            <th>2da Nota Provincial</th>
+                            <th>Total Provincial</th>
                             <th>Escuela</th>
                             <th>Acciones</th>
                         </tr>
@@ -37,6 +43,12 @@
                             <td>{{ $student->phone_student }}</td>
                             <td>{{ $student->classroom }}</td>
                             <td>{{ $student->level_student }}</td>
+                            <td>{{ $student->first_note }}</td>
+                            <td>{{ $student->second_note }}</td>
+                            <td>{{ $student->total_note }}</td>
+                            <td>{{ $student->first_note_inter }}</td>
+                            <td>{{ $student->second_note_inter }}</td>
+                            <td>{{ $student->total_note_inter }}</td>
                             <td>{{ $student->user->name_school }}</td>
                             <td>
                                 <div class="buttons">

@@ -15,19 +15,25 @@
                     </thead>
                     <tbody>
                         @foreach ($statusButton as $status)
-                        <form action="{{ route('admin.editStatus', $status) }}" method="POST">
-                            @csrf
-                        <tr>
-                            <td>{{ $status->name_button }}</td>
-                            <td><input name="status_button" value="{{ $status->status_button }}"></td>
-                            <td><button type="submit" class="btn btn-warning">Actualizar</button></td>
-                        </tr>
-                        </form>
+                            <form action="{{ route('admin.editStatus', $status) }}" method="POST">
+                                @csrf
+                                <tr>
+                                    <td>{{ $status->name_button }}</td>
+                                    <td><input name="status_button" value="{{ $status->status_button }}"></td>
+                                    <td><button type="submit" class="btn btn-warning">Actualizar</button></td>
+                                </tr>
+                            </form>
                         @endforeach
                         <tr>
                             <td>Reset Ingreso</td>
                             <td></td>
-                            <td><a href="{{ route('admin.resetDownload', ['reset'=>'1']) }}" type="submit" class="btn btn-warning">Actualizar</a></td>
+                            <td>
+                                <form method="POST" action="{{ route('admin.resetDownload') }}">
+                                    @csrf
+                                    @method('PUT')
+                                    <button type="submit" class="btn btn-warning">Actualizar</button>
+                                </form>
+                            </td>
                         </tr>
                     </tbody>
                 </table>

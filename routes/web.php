@@ -7,15 +7,35 @@ Route::get('/clear', function () {
     \Artisan::call('cache:clear');
     \Artisan::call('route:clear');
     \Artisan::call('view:clear');
+
+    // Vaciar logs
+    foreach (glob(storage_path('logs/*.log')) as $log) {
+        file_put_contents($log, '');
+    }
+
     return 'FINISHED';
 });
 
-Auth::routes();
+Auth::routes([
+    'reset'   => false,
+    'confirm' => false,
+    'verify'  => false,
+]);
 
-Route::view('/restart', 'auth.restart')->name('restart');
-Route::post('/restart-password', 'HomeController@restartPassword')->name('restartPassword');
-Route::get('/change-password', 'HomeController@changePassword')->name('changePassword');
-Route::post('/new-password/{id}', 'HomeController@newPassword')->name('newPassword');
+
+// 1. Formulario de pedir el enlace
+Route::get('/restart', [App\Http\Controllers\Auth\ForgotPasswordController::class,'showLinkRequestForm'])->name('password.request');
+
+// 2. Envío del mail
+Route::post('/restart-password', [App\Http\Controllers\Auth\ForgotPasswordController::class,'sendResetLinkEmail'])->name('password.email');
+
+// 3. Formulario de nueva contraseña (token)
+Route::get('/change-password/{token}', [App\Http\Controllers\Auth\ResetPasswordController::class,'showResetForm'])->name('password.reset');
+
+// 4. Envío de la nueva contraseña
+Route::post('/new-password', [App\Http\Controllers\Auth\ResetPasswordController::class,'reset'])->name('password.update');
+
+
 
 //Admin Colegio
 Route::middleware(['auth'])->group(function () {
@@ -41,14 +61,13 @@ Route::middleware(['auth'])->group(function () {
     Route::post('/alumno/agregar-nota-inter/{id}', 'StudentController@addNoteInterStudent')->name('student.addInterNote');
 
     Route::get('/examen/descarga/{id}', 'SchoolController@testDownload')->name('school.testDownload');
-
 });
 
 Route::middleware(['auth', 'AdminMiddleware'])->group(function () {
     Route::get('/admin/dashboard', 'Admin\HomeAdminController@index')->name('admin.dashboard');
 
     Route::post('/admin/estados/editar/{id}', 'Admin\HomeAdminController@editStatus')->name('admin.editStatus');
-    Route::get('/examen/reset-download', 'Admin\HomeAdminController@resetDownload')->name('admin.resetDownload');
+    Route::put('/examen/reset-download', 'Admin\HomeAdminController@resetDownload')->name('admin.resetDownload');
 
     Route::get('users/export/nivel1', 'Admin\StudentAdminController@exportStudentLevel1')->name('admin.exportStudentLevel1');
     Route::get('users/export/nivel2', 'Admin\StudentAdminController@exportStudentLevel2')->name('admin.exportStudentLevel2');

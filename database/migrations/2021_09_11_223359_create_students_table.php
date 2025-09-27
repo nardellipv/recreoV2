@@ -32,6 +32,7 @@ class CreateStudentsTable extends Migration
             $table->string('second_note_inter')->nullable();
             $table->string('total_note_inter')->nullable();
             $table->enum('first_time_student', ['SI', 'NO']);
+            $table->enum('have_beca', ['SI', 'NO'])->default('NO');
 
             //relaciones
 

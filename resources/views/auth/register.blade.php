@@ -52,18 +52,24 @@
                                         </div>
                                         <div class="form-group col-6">
                                             <label>Localidad</label>
-                                            <select class="form-control select2" name="region_id">
+                                            <select class="form-control select2 @error('region_id') is-invalid @enderror"
+                                                    name="region_id" required>
                                                 @if(isset($regions))
-                                                <option value="">Seleccione una localidad</option>
-                                                <option disabled>----------------------</option>
-                                                @foreach($regions as $region)
-                                                <option value={{ $region->id }}>{{ $region->name }}</option>
-                                                @endforeach
+                                                    <option value="" disabled selected>Seleccione una localidad</option>
+                                                    @foreach($regions as $region)
+                                                        <option value="{{ $region->id }}" {{ old('region_id') == $region->id ? 'selected' : '' }}>
+                                                            {{ $region->name }}
+                                                        </option>
+                                                    @endforeach
                                                 @else
-                                                <option value="">Seleccione una localidad</option>
+                                                    <option value="" disabled selected>Seleccione una localidad</option>
                                                 @endif
                                             </select>
+                                            @error('region_id')
+                                                <span class="invalid-feedback" role="alert"><strong>{{ $message }}</strong></span>
+                                            @enderror
                                         </div>
+                                        
                                     </div>
 
                                     <div class="row">
@@ -158,7 +164,7 @@
                                             <input id="director2" type="director2"
                                                 class="form-control @error('director2') is-invalid @enderror"
                                                 name="director2" value="{{ old('director2') }}"
-                                                placeholder="Vice director del colegio" required
+                                                placeholder="Vice director del colegio"
                                                 autocomplete="director2">
 
                                             @error('director2')

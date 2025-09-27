@@ -1,4 +1,4 @@
-@if($downloadExam->status_button == 1 AND current_user()->download == 'Y')
+@if(optional($downloadExam)->status_button == 1 && current_user()->download == 'Y')
 <div class="row">
     <div class="col-12 col-md-12 col-lg-12">
         <div class="card card-primary">

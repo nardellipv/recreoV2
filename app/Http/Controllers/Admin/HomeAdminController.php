@@ -46,9 +46,9 @@ class HomeAdminController extends Controller
 
     public function resetDownload(Request $request)
     {
-        $school = User::where('download_enter', 1)
-            ->update(['download_enter' => '0']);
-// dd($request->all());
+        $school = User::where('download_enter', "1")
+            ->update(['download_enter' => "0"]);
+// dd($request->all())
 /*         $school->download_enter = $request['status'];
         $school->save(); */
 

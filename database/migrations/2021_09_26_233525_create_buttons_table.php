@@ -20,6 +20,8 @@ class CreateButtonsTable extends Migration
             $table->integer('status_button');
             $table->integer('first_note_max')->unsigned();
             $table->integer('second_note_max')->unsigned();
+            $table->date('fecha_inicio')->nullable();
+            $table->date('fecha_fin')->nullable();
         });
     }
 

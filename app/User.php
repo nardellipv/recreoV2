@@ -16,8 +16,19 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'name_school', 'email_school', 'address', 'postal_code', 'phone_school', 'director1', 'director2', 
-        'password', 'province_id', 'region_id', 'userType', 'first_time_school', 'sede'
+        'name_school',
+        'email_school',
+        'address',
+        'postal_code',
+        'phone_school',
+        'director1',
+        'director2',
+        'password',
+        'province_id',
+        'region_id',
+        'userType',
+        'first_time_school',
+        'sede'
     ];
 
     /**
@@ -26,7 +37,8 @@ class User extends Authenticatable
      * @var array
      */
     protected $hidden = [
-        'password', 'remember_token',
+        'password',
+        'remember_token',
     ];
 
     /**
@@ -56,5 +68,14 @@ class User extends Authenticatable
     public function Province()
     {
         return $this->belongsTo(Province::class);
+    }
+    public function getEmailForPasswordReset(): string
+    {
+        return $this->email_school;
+    }
+
+    public function routeNotificationForMail($notification)
+    {
+        return $this->email_school;
     }
 }

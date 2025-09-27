@@ -45,6 +45,7 @@ class StudentController extends Controller
                     'classroom' => $request['classroom'],
                     'first_time_student' => $request['first_time_student'],
                     'genre' => $request['genre'],
+                    'have_beca' => $request['have_beca'],
                     'user_id' => current_user()->id,
                 ]);
 
@@ -76,6 +77,7 @@ class StudentController extends Controller
                     'classroom' => $request['classroom'],
                     'first_time_student' => $request['first_time_student'],
                     'genre' => $request['genre'],
+                    'have_beca' => $request['have_beca'],
                     'user_id' => current_user()->id,
                 ]);
 
@@ -123,6 +125,7 @@ class StudentController extends Controller
                 $student->classroom = $request['classroom'];
                 $student->first_time_student = $request['first_time_student'];
                 $student->genre = $request['genre'];
+                $student->have_beca = $request['have_beca'];
                 $student->save();
 
                 toast('Estudiante modificado correctamente!', 'success');
@@ -152,6 +155,7 @@ class StudentController extends Controller
                 $student->classroom = $request['classroom'];
                 $student->first_time_student = $request['first_time_student'];
                 $student->genre = $request['genre'];
+                $student->have_beca = $request['have_beca'];
                 $student->save();
 
                 toast('Estudiante modificado correctamente!', 'success');

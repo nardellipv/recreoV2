@@ -45,7 +45,7 @@ class SchoolController extends Controller
             return back();
         }
 
-        $school->download_enter = 1;
+        $school->download_enter = "1";
         $school->save();
 
         return view('web.download.listDownload');

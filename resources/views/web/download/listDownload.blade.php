@@ -28,15 +28,15 @@
               </tr>
               <tr>
                 <td>1</td>
-                <td>2023 - Nivel 1 - Prueba Provincial</td>
-                <td><a href="{{ asset('download/nivel1/2023 - Nivel 1 - Prueba Intercolegial.pdf') }}" target="_Blank"
+                <td>2025 - Nivel 1 - Prueba Provincial</td>
+                <td><a href="{{ asset('download/nivel1/25-9 9hs/Examen Provincial N1 2025 SIN Respuestas.pdf') }}" target="_Blank"
                     class="btn btn-primary">Descargar Prueba</a></td>
               </tr>
               @if($downloadCorrection->status_button == 1)
               <tr>
                 <td>2</td>
-                <td>2023 - Nivel 1 - Prueba Provincial - Clave de correción</td>
-                <td><a href="{{ asset('download/nivel1/2023 - Nivel 1 - Prueba Intercolegial - Clave de correción.pdf') }}"
+                <td>2025 - Nivel 1 - Prueba Provincial - Clave de correción</td>
+                <td><a href="{{ asset('download/nivel1/26-9 12hs/Examen Provincial N1 2025 - Clave de corrección.pdf') }}"
                     target="_Blank" class="btn btn-primary">Descargar Corrección</a></td>
               </tr>
               @endif
@@ -67,29 +67,39 @@
               </tr>
               <tr>
                 <td>1</td>
-                <td>2023 - Nivel 2 - 1. Experimental Alumnos Nivel 2</td>
-                <td><a href="{{ asset('download/nivel2/1. Experimental Alumnos Nivel 2.pdf') }}" target="_Blank"
+                <td>2025 - Nivel 2 - 1. Prueba teórica Provincial</td>
+                <td><a href="{{ asset('download/nivel2/25-9 9hs/Nivel 2 - Teórica Provincial 2025 sin respuestas.pdf') }}" target="_Blank"
                     class="btn btn-primary">Descargar Prueba</a></td>
               </tr>
               <tr>
                 <td>2</td>
-                <td>2023 - Nivel 2 - 1. A. Provincial OM INSTRUCTIVO</td>
-                <td><a href="{{ asset('download/nivel2/1. A. Intercolegial-OM-INSTRUCTIVO.pdf') }}"
+                <td>2025 - Nivel 2 - 2. Prueba Experimental Provincial N2</td>
+                <td><a href="{{ asset('download/nivel2/25-9 9hs/Nivel 2 Experimental 2025 sin respuestas.pdf') }}"
                     target="_Blank" class="btn btn-primary">Descargar Prueba</a></td>
               </tr>
+              @if($downloadCorrection2->status_button == 1)
               <tr>
                 <td>3</td>
-                <td>2023 - Nivel 2 - 1. B. Provincial OM HOJA RESPUESTAS ALUMNOS</td>
-                <td><a href="{{ asset('download/nivel2/1. B. Intercolegia-OM-HOJA-RESPUESTAS-ALUMNOS.pdf') }}"
+                <td>2025 - Nivel 2 - 1. Clave de correccion Prueba Teórica Provincial</td>
+                <td><a href="{{ asset('download/nivel2/26-9 15hs/Clave de correción Nivel 2 - Teórica Provincial 2025.pdf') }}"
+                    target="_Blank" class="btn btn-primary">Descargar Corrección</a></td>
+              </tr>
+              @endif
+             <!-- <tr>
+                <td>4</td>
+                <td>2025 - Nivel 2 - 2. Prueba Experimental Provincial</td>
+                <td><a href="{{ asset('download/nivel2/2. ClaveCorrección- PRUEBA EXPERIMENTAL PROVINCIAL 2024.pdf') }}"
                     target="_Blank" class="btn btn-primary">Descargar Prueba</a></td>
               </tr>
+
               <tr>
                 <td>4</td>
-                <td>2023 - Nivel 2 - 1. B. Resolución de Problemas</td>
-                <td><a href="{{ asset('download/nivel2/1. RdeP Alumno.pdf') }}"
+                <td>2025 - Nivel 2 - 2.B. Clave Corrección- PRUEBA EXPERIMENTAL PROVINCIAL 2024</td>
+                <td><a href="{{ asset('download/nivel2/2.B. Clave Corrección- PRUEBA EXPERIMENTAL PROVINCIAL 2024 CON RESPUESTAS.pdf') }}"
                     target="_Blank" class="btn btn-primary">Descargar Prueba</a></td>
-              </tr>
-              @if($downloadCorrection->status_button == 1)
+              </tr>-->
+              <!-- ------------------------------------------------------------------- -->
+              <!-- @if($downloadCorrection->status_button == 1)
               <tr>
                 <td>1</td>
                 <td>Provincial OM CC PROFESORES</td>
@@ -103,12 +113,12 @@
                     href="{{ asset('download/nivel2/2.RdePClave de correcion.pdf') }}"
                     target="_Blank" class="btn btn-primary">Descargar Corrección</a></td>
               </tr>
-              @endif
+              @endif-->
               @if($downloadCorrection2->status_button == 1)
               <tr>
-                <td>1</td>
-                <td>Experimental Clave Correccion</td>
-                <td><a href="{{ asset('download/nivel2/2. Experimental-Clave Correccion.pdf') }}"
+                <td>4</td>
+                <td>2025 - Experimental Clave Correccion</td>
+                <td><a href="{{ asset('download/nivel2/26-9 12hs/Clave de correciones Nivel 2 Experimental 2025.pdf') }}"
                   target="_Blank" class="btn btn-primary">Descargar Corrección</a></td>
               </tr>
               @endif

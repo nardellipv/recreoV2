@@ -16,116 +16,164 @@
               <div class="form-row">
                 <div class="form-group col-md-6">
                   <label for="inputName">Nombre</label>
-                  <input type="text" class="form-control" id="inputName" name="name_teacher" placeholder="Nombre"
-                    value="{{ old('name',$teacher->name_teacher) }}" required>
+                  <input type="text"
+                         class="form-control @error('name_teacher') is-invalid @enderror"
+                         id="inputName"
+                         name="name_teacher"
+                         placeholder="Nombre"
+                         value="{{ old('name_teacher', $teacher->name_teacher) }}"
+                         required>
+                  @error('name_teacher')
+                    <span class="invalid-feedback" role="alert"><strong>{{ $message }}</strong></span>
+                  @enderror
                 </div>
                 <div class="form-group col-md-6">
                   <label for="inputLastName">Apellido</label>
-                  <input type="text" class="form-control" id="inputLastName" name="lastname_teacher"
-                    placeholder="Apellido" value="{{ old('name',$teacher->lastname_teacher) }}" required>
+                  <input type="text"
+                         class="form-control @error('lastname_teacher') is-invalid @enderror"
+                         id="inputLastName"
+                         name="lastname_teacher"
+                         placeholder="Apellido"
+                         value="{{ old('lastname_teacher', $teacher->lastname_teacher) }}"
+                         required>
+                  @error('lastname_teacher')
+                    <span class="invalid-feedback" role="alert"><strong>{{ $message }}</strong></span>
+                  @enderror
                 </div>
               </div>
 
               <div class="form-row">
                 <div class="form-group col-md-6">
                   <label for="inputPhone">Teléfono</label>
-                  <input type="text" class="form-control" id="inputPhone" name="phone_teacher" placeholder="Teléfono"
-                    value="{{ old('phone',$teacher->phone_teacher) }}" required>
+                  <input type="text"
+                         class="form-control @error('phone_teacher') is-invalid @enderror"
+                         id="inputPhone"
+                         name="phone_teacher"
+                         placeholder="Teléfono"
+                         value="{{ old('phone_teacher', $teacher->phone_teacher) }}"
+                         required>
+                  @error('phone_teacher')
+                    <span class="invalid-feedback" role="alert"><strong>{{ $message }}</strong></span>
+                  @enderror
                 </div>
                 <div class="form-group col-md-6">
                   <label for="inputDNI">DNI</label>
-                  <input type="text" class="form-control" id="inputDNI" name="dni_teacher" placeholder="DNI"
-                    value="{{ old('dni',$teacher->dni_teacher) }}" required>
+                  <input type="text"
+                         class="form-control @error('dni_teacher') is-invalid @enderror"
+                         id="inputDNI"
+                         name="dni_teacher"
+                         placeholder="DNI"
+                         value="{{ old('dni_teacher', $teacher->dni_teacher) }}"
+                         required>
+                  @error('dni_teacher')
+                    <span class="invalid-feedback" role="alert"><strong>{{ $message }}</strong></span>
+                  @enderror
                 </div>
               </div>
 
               <div class="form-row">
                 <div class="form-group col-md-6">
                   <label for="inputEmail">Email</label>
-                  <input type="email" class="form-control" id="inputEmail" name="email_teacher" placeholder="Email"
-                    value="{{ old('email_teacher',$teacher->email_teacher) }}" required>
+                  <input type="email"
+                         class="form-control @error('email_teacher') is-invalid @enderror"
+                         id="inputEmail"
+                         name="email_teacher"
+                         placeholder="Email"
+                         value="{{ old('email_teacher', $teacher->email_teacher) }}"
+                         required>
+                  @error('email_teacher')
+                    <span class="invalid-feedback" role="alert"><strong>{{ $message }}</strong></span>
+                  @enderror
                 </div>
                 <div class="form-group col-md-6">
                   <label for="inputSpace">Espacio Curricular</label>
-                  <input type="text" class="form-control" id="inputSpace" name="space" placeholder="Espacio"
-                    value="{{ old('space',$teacher->space) }}" required>
+                  <input type="text"
+                         class="form-control @error('space') is-invalid @enderror"
+                         id="inputSpace"
+                         name="space"
+                         placeholder="Espacio"
+                         value="{{ old('space', $teacher->space) }}"
+                         required>
+                  @error('space')
+                    <span class="invalid-feedback" role="alert"><strong>{{ $message }}</strong></span>
+                  @enderror
                 </div>
               </div>
 
               <div class="row">
                 <div class="form-group col-6">
                   <label class="d-block">Nivel en el que participa</label>
-                  <div class="form-check form-check-inline">
-                    <label class="selectgroup-item">
-                      <input type="radio" name="level_teacher" value="1" class="selectgroup-input-radio" required {{
-                        $teacher->level_teacher == '1' ? 'checked' : ''}}>
-                      <span class="selectgroup-button">Nivel 1</span>
+                  @foreach(['1'=>'Nivel 1','2'=>'Nivel 2','3'=>'Ambos Niveles'] as $val=>$label)
+                    <label class="selectgroup-item form-check form-check-inline">
+                      <input type="radio"
+                             name="level_teacher"
+                             value="{{ $val }}"
+                             class="selectgroup-input-radio"
+                             required
+                             {{ old('level_teacher', $teacher->level_teacher) == $val ? 'checked' : '' }}>
+                      <span class="selectgroup-button">{{ $label }}</span>
                     </label>
-                  </div>
-                  <div class="form-check form-check-inline">
-                    <label class="selectgroup-item">
-                      <input type="radio" name="level_teacher" value="2" class="selectgroup-input-radio" {{
-                        $teacher->level_teacher == '2' ? 'checked' : ''}}>
-                      <span class="selectgroup-button">Nivel 2</span>
-                    </label>
-                  </div>
-                  <div class="form-check form-check-inline">
-                    <label class="selectgroup-item">
-                      <input type="radio" name="level_teacher" value="3" class="selectgroup-input-radio" {{
-                        $teacher->level_teacher == '3' ? 'checked' : ''}}>
-                      <span class="selectgroup-button">Ambos Niveles</span>
-                    </label>
-                  </div>
+                  @endforeach
+                  @error('level_teacher')
+                    <div class="text-danger"><strong>{{ $message }}</strong></div>
+                  @enderror
                 </div>
 
                 <div class="form-group col-6">
                   <label class="d-block">Participación con anterioridad</label>
-                  <div class="form-check form-check-inline">
-                    <label class="selectgroup-item">
-                      <input type="radio" name="first_time_teacher" value="SI" class="selectgroup-input-radio" required
-                        {{ $teacher->first_time_teacher == 'SI' ? 'checked' : ''}}>
-                      <span class="selectgroup-button">Participo por primera vez</span>
+                  @foreach(['SI'=>'Participó por primera vez','NO'=>'Ya he participado con anterioridad'] as $val=>$label)
+                    <label class="selectgroup-item form-check form-check-inline">
+                      <input type="radio"
+                             name="first_time_teacher"
+                             value="{{ $val }}"
+                             class="selectgroup-input-radio"
+                             required
+                             {{ old('first_time_teacher', $teacher->first_time_teacher) == $val ? 'checked' : '' }}>
+                      <span class="selectgroup-button">{{ $label }}</span>
                     </label>
-                  </div>
-                  <div class="form-check form-check-inline">
-                    <label class="selectgroup-item">
-                      <input type="radio" name="first_time_teacher" value="NO" class="selectgroup-input-radio"
-                        {{ $teacher->first_time_teacher == 'NO' ? 'checked' : ''}}>
-                      <span class="selectgroup-button">Ya he participado con anterioridad</span>
-                    </label>
-                  </div>
+                  @endforeach
+                  @error('first_time_teacher')
+                    <div class="text-danger"><strong>{{ $message }}</strong></div>
+                  @enderror
                 </div>
-
 
                 <div class="form-group col-6">
                   <label class="d-block">Participación en otras escuelas</label>
-                  <div class="form-check form-check-inline">
-                    <label class="selectgroup-item">
-                      <input type="radio" name="other_school" value="SI" class="selectgroup-input-radio" required
-                        onclick="show1();" {{ $teacher->other_school == 'SI' ? 'checked' : ''}}>
-                      <span class="selectgroup-button">Si, participo en otro colegio</span>
+                  @foreach(['SI'=>'Sí, participo en otro colegio','NO'=>'No, solo en este colegio'] as $val=>$label)
+                    <label class="selectgroup-item form-check form-check-inline">
+                      <input type="radio"
+                             name="other_school"
+                             value="{{ $val }}"
+                             class="selectgroup-input-radio"
+                             required
+                             onclick="show1();"
+                             {{ old('other_school', $teacher->other_school) == $val ? 'checked' : '' }}>
+                      <span class="selectgroup-button">{{ $label }}</span>
                     </label>
-                  </div>
-                  <div class="form-check form-check-inline">
-                    <label class="selectgroup-item">
-                      <input type="radio" name="other_school" value="NO" class="selectgroup-input-radio"
-                        onclick="show2();" {{ $teacher->other_school == 'NO' ? 'checked' : ''}}>
-                      <span class="selectgroup-button">No, solo en este colegio</span>
-                    </label>
-                  </div>
+                  @endforeach
+                  @error('other_school')
+                    <div class="text-danger"><strong>{{ $message }}</strong></div>
+                  @enderror
                 </div>
 
-                <div id="div1" class="form-group col-6 {{ $teacher->name_school_teacher == NULL ? 'hide' : '' }}">
-                  <label for="inputName">Nombre del colegio</label>
-                  <input type="text" class="form-control" id="inputName" name="name_school_teacher" placeholder="Nombre"
-                    value="{{ old('name_school_teacher',$teacher->name_school_teacher) }}">
+                <div id="div1"
+                     class="form-group col-6 {{ old('other_school', $teacher->other_school) == 'SI' ? '' : 'hide' }}">
+                  <label for="inputNameSchool">Nombre del colegio</label>
+                  <input type="text"
+                         class="form-control @error('name_school_teacher') is-invalid @enderror"
+                         id="inputNameSchool"
+                         name="name_school_teacher"
+                         placeholder="Nombre del colegio"
+                         value="{{ old('name_school_teacher', $teacher->name_school_teacher) }}">
+                  @error('name_school_teacher')
+                    <span class="invalid-feedback" role="alert"><strong>{{ $message }}</strong></span>
+                  @enderror
                 </div>
               </div>
             </div>
 
             <div class="card-footer">
-              <button type="submit" class="btn btn-primary btn-block">Actualizar
-                Profesor</button>
+              <button type="submit" class="btn btn-primary btn-block">Actualizar Profesor</button>
             </div>
           </form>
         </div>
@@ -135,18 +183,28 @@
 </section>
 @endsection
 
-
-<script type="text/javascript">
-  function show1(){
-    document.getElementById('div1').style.display ='block';
+@push('scripts')
+<script>
+  function show1() {
+    document.getElementById('div1').style.display = 'block';
   }
-  function show2(){
+  function show2() {
     document.getElementById('div1').style.display = 'none';
   }
+  document.addEventListener('DOMContentLoaded', function() {
+    if ('{{ old('other_school', $teacher->other_school) }}' === 'SI') {
+      show1();
+    } else {
+      show2();
+    }
+  });
 </script>
+@endpush
 
+@push('styles')
 <style>
   .hide {
     display: none;
   }
 </style>
+@endpush

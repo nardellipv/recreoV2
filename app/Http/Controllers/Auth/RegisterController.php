@@ -73,16 +73,49 @@ class RegisterController extends Controller
     protected function validator(array $data)
     {
         return Validator::make($data, [
-            'name_school' => ['required', 'string', 'max:255'],
-            'email_school' => ['required', 'string', 'email', 'max:255', 'unique:users'],
-            'address' => ['required', 'string', 'max:255'],
-            'postal_code' => ['required', 'numeric'],
-            'phone_school' => ['required', 'numeric'],
-            'director1' => ['required', 'string', 'max:255'],
-            'director2' => ['required', 'string', 'max:255'],
-            'password' => ['required', 'string', 'min:8', 'confirmed'],
+            'name_school'   => ['required', 'string', 'max:255'],
+            'email_school'  => ['required', 'string', 'email', 'max:255', 'unique:users'],
+            'address'       => ['required', 'string', 'max:255'],
+            'postal_code'   => ['required', 'numeric'],
+            'phone_school'  => ['required', 'numeric'],
+            'director1'     => ['required', 'string', 'max:255'],
+            'director2'     => ['required', 'string', 'max:255'],
+            'password'      => ['required', 'string', 'min:8', 'confirmed'],
+        ], [
+            'name_school.required'  => 'El nombre del colegio es obligatorio.',
+            'name_school.string'    => 'El nombre del colegio debe ser un texto.',
+            'name_school.max'       => 'El nombre del colegio no puede superar 255 caracteres.',
+    
+            'email_school.required' => 'El correo del colegio es obligatorio.',
+            'email_school.email'    => 'El correo del colegio debe ser una dirección válida.',
+            'email_school.max'      => 'El correo del colegio no puede superar 255 caracteres.',
+            'email_school.unique'   => 'Este correo ya está registrado.',
+    
+            'address.required'      => 'La dirección es obligatoria.',
+            'address.string'        => 'La dirección debe ser un texto.',
+            'address.max'           => 'La dirección no puede superar 255 caracteres.',
+    
+            'postal_code.required'  => 'El código postal es obligatorio.',
+            'postal_code.numeric'   => 'El código postal debe ser un número.',
+    
+            'phone_school.required' => 'El teléfono del colegio es obligatorio.',
+            'phone_school.numeric'  => 'El teléfono del colegio debe ser un número.',
+    
+            'director1.required'    => 'El nombre del director es obligatorio.',
+            'director1.string'      => 'El nombre del director debe ser un texto.',
+            'director1.max'         => 'El nombre del director no puede superar 255 caracteres.',
+    
+            'director2.required'    => 'El nombre del vice director es obligatorio.',
+            'director2.string'      => 'El nombre del vice director debe ser un texto.',
+            'director2.max'         => 'El nombre del vice director no puede superar 255 caracteres.',
+    
+            'password.required'     => 'La contraseña es obligatoria.',
+            'password.string'       => 'La contraseña debe ser un texto.',
+            'password.min'          => 'La contraseña debe tener al menos 8 caracteres.',
+            'password.confirmed'    => 'La confirmación de contraseña no coincide.',
         ]);
     }
+    
 
     /**
      * Create a new user instance after a valid registration.

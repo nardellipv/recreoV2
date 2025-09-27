@@ -39,6 +39,7 @@ class StudentAdminController extends Controller
         $student->classroom = $request['classroom'];
         $student->first_time_student = $request['first_time_student'];
         $student->genre = $request['genre'];
+        $student->have_beca = $request['have_beca']; 
         $student->save();
 
         toast('Estudiante modificado correctamente!', 'success');
@@ -198,7 +199,6 @@ class StudentAdminController extends Controller
             "Tierra del Fuego" => $studentTFuego,
         ]);
 
-        // return (fastexcel($level1))->download("Estudiantes por Provincia Nivel 1.xlsx");
         return (fastexcel($level1))->download("Estudiantes por Provincia Nivel 1.xlsx", function ($user) {
             return [
                 'Nombre' => ucfirst($user->name_student),
@@ -210,6 +210,7 @@ class StudentAdminController extends Controller
                 'email' => lcfirst($user->email_student),
                 'Grado' => ucfirst($user->classroom),
                 'Nivel' => ucfirst($user->level_student),
+                '¿Tiene Beca Progresar?' => ucfirst($user->have_beca),
                 'Primera Nota Colegial' => ucfirst($user->first_note),
                 'Segunda Nota Colegial' => ucfirst($user->second_note),
                 'Nota Total Colegial' => ucfirst($user->total_note),
@@ -375,7 +376,6 @@ class StudentAdminController extends Controller
             "Tierra del Fuego" => $studentTFuego,
         ]);
 
-        // Exportation des feuilles de calcul vers "/public/users-posts-products.xlsx"
         return (fastexcel($level2))->download("Estudiantes por Provincia Nivel 2.xlsx", function ($user) {
             return [
                 'Nombre' => ucfirst($user->name_student),
@@ -387,6 +387,7 @@ class StudentAdminController extends Controller
                 'email' => lcfirst($user->email_student),
                 'Grado' => ucfirst($user->classroom),
                 'Nivel' => ucfirst($user->level_student),
+                '¿Tiene Beca Progresar?' => ucfirst($user->have_beca),
                 'Primera Nota' => ucfirst($user->first_note),
                 'Segunda Nota' => ucfirst($user->second_note),
                 'Nota Total' => ucfirst($user->total_note),

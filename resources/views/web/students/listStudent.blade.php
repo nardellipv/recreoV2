@@ -64,18 +64,22 @@
                                         </td>
                                         <td>
                                             <div class="btn-group mb-3" role="group" aria-label="Basic example">
-                                                @if($registerNote->status_button == '1')
-                                                <button type="button" class="btn btn-sm btn-warning" data-toggle="modal"
-                                                    data-target="#modalAddNoteStudent{{ $student->id }}">
-                                                    Colegial</button>
+                                                @if(optional($registerNote)->status_button == '1')
+                                                    <button type="button" class="btn btn-sm btn-warning" data-toggle="modal"
+                                                        data-target="#modalAddNoteStudent{{ $student->id }}">
+                                                        Colegial
+                                                    </button>
                                                 @endif
-                                                @if($registerNoteInter->status_button == '1')
-                                                <button type="button" class="btn btn-sm btn-warning" data-toggle="modal"
-                                                    data-target="#modalAddNoteInterStudent{{ $student->id }}">
-                                                    Provincial</button>
+                                        
+                                                @if(optional($registerNoteInter)->status_button == '1')
+                                                    <button type="button" class="btn btn-sm btn-warning" data-toggle="modal"
+                                                        data-target="#modalAddNoteInterStudent{{ $student->id }}">
+                                                        Provincial
+                                                    </button>
                                                 @endif
                                             </div>
                                         </td>
+                                        
                                     </tr>
                                     @endforeach
                                 </tbody>

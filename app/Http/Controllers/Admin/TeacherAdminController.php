@@ -48,15 +48,21 @@ class TeacherAdminController extends Controller
     public function exportTeacherSchoolLevel()
     {
         $teacherSchoolLevel1 = Teacher::join('users', 'teachers.user_id', 'users.id')
+            ->join('provinces', 'users.province_id', 'provinces.id')
             ->where('teachers.level_teacher', 1)
+            ->select('teachers.*', 'users.*', 'provinces.name as name_province')
             ->get();
 
         $teacherSchoolLevel2 = Teacher::join('users', 'teachers.user_id', 'users.id')
+            ->join('provinces', 'users.province_id', 'provinces.id')
             ->where('level_teacher', 2)
+            ->select('teachers.*', 'users.*', 'provinces.name as name_province')
             ->get();
 
         $teacherSchoolLevel3 = Teacher::join('users', 'teachers.user_id', 'users.id')
+            ->join('provinces', 'users.province_id', 'provinces.id')
             ->where('level_teacher', 3)
+            ->select('teachers.*', 'users.*', 'provinces.name as name_province')
             ->get();
 
         $teacherSchoolLevel = new SheetCollection([
@@ -79,6 +85,7 @@ class TeacherAdminController extends Controller
                 '¿Otro Colegio?' => ucfirst($user->other_school),
                 'Nombre Otro Colegio' => ucfirst($user->name_school_teacher),
                 'Escuela' => ucfirst($user->name_school),
+                'Provincia' => ucfirst($user->name_province),
                 'Dirección Escuela' => ucfirst($user->address),
             ];
         });

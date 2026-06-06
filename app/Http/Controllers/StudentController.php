@@ -17,7 +17,10 @@ class StudentController extends Controller
         $students = Student::where('user_id', current_user()->id)
             ->get();
 
-        return view('web.students.listStudent', compact('students'));
+        $registerNote = Buttons::where('name_button', 'Notas')->first();
+        $registerNoteInter = Buttons::where('name_button', 'Notas Inter')->first();
+
+        return view('web.students.listStudent', compact('students', 'registerNote', 'registerNoteInter'));
     }
 
     public function storeStudent(StudentRequest $request)
